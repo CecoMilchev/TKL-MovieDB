@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Framework
+namespace Movie_DB
 {
-    public class User
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

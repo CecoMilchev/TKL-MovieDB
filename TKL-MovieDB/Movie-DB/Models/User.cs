@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Models.Framework
 {
-    public class Series
+    public class User
     {
+       
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models.Framework
+﻿namespace Models.Framework
 {
     public class Person
     {
@@ -14,6 +8,6 @@ namespace Models.Framework
 
         public string LastName { get; set; }
 
-
+        public string Job { get; set; }
     }
 }
