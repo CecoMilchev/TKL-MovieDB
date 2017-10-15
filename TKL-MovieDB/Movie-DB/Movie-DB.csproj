@@ -58,6 +58,7 @@
     <Compile Include="Commands\CommandsProcessor.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\Contracts\ICommandProcessor.cs" />
+    <Compile Include="Commands\Creating\CreatePersonCommand.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\Factories\ICommandFactory.cs" />
@@ -71,6 +72,8 @@
     <Compile Include="Core\Providers\ConsoleWriter.cs" />
     <Compile Include="Core\Providers\IReader.cs" />
     <Compile Include="Core\Providers\IWriter.cs" />
+    <Compile Include="Data\IMovieDbContext.cs" />
+    <Compile Include="Data\MovieDbContext.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Person.cs" />
@@ -84,8 +87,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

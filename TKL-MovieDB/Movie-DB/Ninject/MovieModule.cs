@@ -1,4 +1,8 @@
-﻿using Ninject.Modules;
+﻿using Movie_DB.Commands;
+using Movie_DB.Commands.Contracts;
+using Movie_DB.Commands.Core.Factories;
+using Movie_DB.Core.Providers;
+using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +15,12 @@ namespace Movie_DB.Ninject
     {
         public override void Load()
         {
-            throw new NotImplementedException();
+            this.Bind<IReader>().To<ConsoleReader>();
+            this.Bind<IWriter>().To<ConsoleWriter>();
+            this.Bind<ICommandProcessor>().To<CommandsProcessor>();
+
+            //this.Bind<ITravellerFactory>().To<TravellerFactory>().InSingletonScope();
+            this.Bind<ICommandFactory>().To<CommandFactory>().InSingletonScope();
         }
     }
 }
