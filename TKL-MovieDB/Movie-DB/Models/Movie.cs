@@ -1,9 +1,11 @@
 ﻿using Bytes2you.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Framework
 {
+    [NotMapped]
     public class Movie
     {
         private string name;

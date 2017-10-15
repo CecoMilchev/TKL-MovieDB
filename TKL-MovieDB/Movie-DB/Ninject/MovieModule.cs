@@ -3,6 +3,7 @@ using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Commands.Creating;
 using Movie_DB.Core.Providers;
+using Movie_DB.Data;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Movie_DB.Ninject
     {
         public override void Load()
         {
+            this.Bind<IMovieDbContext>().To<MovieDbContext>();
             this.Bind<IReader>().To<ConsoleReader>();
             this.Bind<IWriter>().To<ConsoleWriter>();
             this.Bind<ICommandProcessor>().To<CommandsProcessor>();

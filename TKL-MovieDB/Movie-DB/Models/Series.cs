@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Framework
 {
+    
+    [NotMapped]
     public class Series
     {
         public int ID { get; set; }
@@ -11,7 +14,6 @@ namespace Models.Framework
         public int Rating { get; set; }
 
         public ICollection<Category> Categories { get; set; }
-
         public ICollection<Person> Creators { get; set; }
 
         public ICollection<Person> Writers { get; set; }

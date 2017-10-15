@@ -13,15 +13,16 @@ namespace Movie_DB.Commands.Creating
 {
     public class CreatePersonCommand : ICommand
     {
-       // private readonly MovieDbContext context;
+        // private readonly MovieDbContext context;
         private readonly IMovieFactory factory;
         private readonly IReader reader;
         private readonly IWriter writer;
+        private readonly IMovieDbContext context;
         private List<string> personData = new List<string>();
 
-        public CreatePersonCommand(/*MovieDbContext context,*/ IMovieFactory factory, IReader reader, IWriter writer)
+        public CreatePersonCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
         {
-           // this.context = context;
+            this.context = context;
             this.factory = factory;
             this.reader = reader;
             this.writer = writer;
@@ -39,9 +40,10 @@ namespace Movie_DB.Commands.Creating
 
         public string Execute()
         {
-           CollectData();
-            var Person = this.factory.CreatePerson(personData[0], personData[1], personData[0]);
-            writer.Write("ei ma");
+            CollectData();
+            var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
+            context.Persons.Add(person);
+            context.SaveChanges();
             return "Person Created";
         }
     }

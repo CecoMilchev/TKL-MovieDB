@@ -15,10 +15,10 @@ namespace Movie_DB.Data
         {
         }
 
-        public IDbSet<Movie> Movies { get; set; }
-        public IDbSet<User> Users { get; set; }
+       // public IDbSet<Movie> Movies { get; set; }
+        //public IDbSet<User> Users { get; set; }
         public IDbSet<Person> Persons { get; set; }
-        public IDbSet<Series> SeriesCollection { get; set; }
+        //public IDbSet<Series> SeriesCollection { get; set; }
 
 
     }
