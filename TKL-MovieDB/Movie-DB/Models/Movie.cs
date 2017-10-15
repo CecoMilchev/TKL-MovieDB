@@ -1,20 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using Bytes2you.Validation;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models.Framework
 {
     public class Movie
     {
-      
+        private string name;
+        private int rating;
+        private ICollection<Category> category;
+        private string year;
+        private string releaseDate;
+        private string synopsis;
+        private ICollection<Person> writers;
+        private ICollection<Person> directors;
+        private ICollection<Person> cast;
+        private decimal budget;
+
 
         public Movie()
         {
         }
 
-        public Movie(string name)
-        {
-
-        }
+        //public Movie(string name, int rating, IEnumerable<Category> categories, string year, string releaseDate, string synopsis,
+        //    IEnumerable<Person> writers, IEnumerable<Person> directors, IEnumerable<Person> cast, decimal budget)
+        //{
+        //    this.Name = name;
+        //    this.Rating = rating;
+        //    this.Year = year;
+        //    this.ReleaseDate = releaseDate;
+        //    this.Synopsis = synopsis;
+        //    this.Writers = writers;
+        //    this.Directors = directors;
+        //    this.Cast = cast;
+        //    this.Budget = budget;
+        //}
 
         public int Id { get; set; }
 
@@ -41,7 +61,7 @@ namespace Models.Framework
 
         public ICollection<Person> Directors { get; set; }
 
-        public ICollection<Person> Actors { get; set; }
+        //public ICollection<Person> Actors { get; set; }
 
         public ICollection<Person> Cast { get; set; }
 
