@@ -11,9 +11,7 @@ namespace Movie_DB
     {
         static void Main(string[] args)
         {
-            Movie movie = new Movie("name");
-
-            Console.WriteLine(movie.ToString());
+           
         }
     }
 }
