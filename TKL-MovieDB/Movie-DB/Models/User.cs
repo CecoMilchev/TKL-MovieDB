@@ -11,9 +11,21 @@ namespace Models.Framework
     [NotMapped]
     public class User
     {
+        private ICollection<Movie> watchList;
+        private ICollection<Movie> myRatings;
+        private ICollection<Movie> favouriteMovies;
+        private ICollection<Series> favouriteSeries;
+        private ICollection<Person> favouriteActors;
+
+
         public User()
         {
-                
+            this.watchList = new HashSet<Movie>();
+            this.myRatings = new HashSet<Movie>();
+            this.favouriteMovies = new HashSet<Movie>();
+            this.favouriteSeries = new HashSet<Series>();
+            this.favouriteActors = new HashSet<Person>();
+
         }
 
         [Required]
@@ -29,7 +41,9 @@ namespace Models.Framework
 
         public ICollection<Movie> MyRatings { get; set; }
 
-        public ICollection<Movie> Favorites { get; set; }
+        public ICollection<Movie> FavoriteMovies { get; set; }
+
+        public ICollection<Series> FavoriteSeries { get; set; }
 
         public ICollection<Person> FavoriteActors { get; set; }
     }

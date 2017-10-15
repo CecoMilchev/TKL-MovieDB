@@ -78,13 +78,9 @@
     <Compile Include="Core\Providers\IWriter.cs" />
     <Compile Include="Data\IMovieDbContext.cs" />
     <Compile Include="Data\MovieDbContext.cs" />
-    <Compile Include="Migrations\201710151436503_test migration.cs" />
-    <Compile Include="Migrations\201710151436503_test migration.Designer.cs">
-      <DependentUpon>201710151436503_test migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710151441361_Test migration 2.cs" />
-    <Compile Include="Migrations\201710151441361_Test migration 2.Designer.cs">
-      <DependentUpon>201710151441361_Test migration 2.cs</DependentUpon>
+    <Compile Include="Migrations\201710151551394_Add Person Model.cs" />
+    <Compile Include="Migrations\201710151551394_Add Person Model.Designer.cs">
+      <DependentUpon>201710151551394_Add Person Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -101,11 +97,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710151436503_test migration.resx">
-      <DependentUpon>201710151436503_test migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710151441361_Test migration 2.resx">
-      <DependentUpon>201710151441361_Test migration 2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710151551394_Add Person Model.resx">
+      <DependentUpon>201710151551394_Add Person Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

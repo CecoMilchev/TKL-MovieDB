@@ -7,13 +7,13 @@ namespace Movie_DB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Testmigration2 : IMigrationMetadata
+    public sealed partial class AddPersonModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Testmigration2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPersonModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710151441361_Test migration 2"; }
+            get { return "201710151551394_Add Person Model"; }
         }
         
         string IMigrationMetadata.Source

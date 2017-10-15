@@ -13,7 +13,6 @@ namespace Movie_DB.Commands.Creating
 {
     public class CreatePersonCommand : ICommand
     {
-        // private readonly MovieDbContext context;
         private readonly IMovieFactory factory;
         private readonly IReader reader;
         private readonly IWriter writer;
@@ -42,8 +41,11 @@ namespace Movie_DB.Commands.Creating
         {
             CollectData();
             var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
+
             context.Persons.Add(person);
+
             context.SaveChanges();
+
             return "Person Created";
         }
     }
