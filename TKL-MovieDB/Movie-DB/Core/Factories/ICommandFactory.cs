@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie_DB
+namespace Movie_DB.Commands.Core.Factories
 {
-    class Program
+    public interface ICommandFactory
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
