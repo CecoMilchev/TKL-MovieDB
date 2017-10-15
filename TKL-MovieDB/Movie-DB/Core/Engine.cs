@@ -12,17 +12,16 @@ namespace Movie_DB.Core
     {
         public readonly IReader reader;
         public readonly IWriter writer;
+        public readonly IParser parser;
         public readonly ICommandProcessor commandProcessor;
 
-        public Engine(IReader reader, IWriter writer, ICommandProcessor commandProcessor)
+        public Engine(IReader reader, IWriter writer, IParser parser)
         {
             this.reader = reader;
             this.writer = writer;
-            this.commandProcessor = commandProcessor;
+            this.parser = parser;
         }
-
-         
-
+        
         public void Start()
         {
             writer.WriteLine("Welcome to TKL-MovieDB");
@@ -32,7 +31,7 @@ namespace Movie_DB.Core
 
            string commandChoice = reader.ReadLine();
 
-           // commandProcessor.
+            parser.ParseCommand(commandChoice);
         }
     }
 }

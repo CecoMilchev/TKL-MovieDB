@@ -68,8 +68,10 @@
     <Compile Include="Commands\Creating\CreateSeriesCommand.cs" />
     <Compile Include="Commands\Creating\CreateUserCommand.cs" />
     <Compile Include="Core\IEngine.cs" />
+    <Compile Include="Core\Providers\CommandParser.cs" />
     <Compile Include="Core\Providers\ConsoleReader.cs" />
     <Compile Include="Core\Providers\ConsoleWriter.cs" />
+    <Compile Include="Core\Providers\IParser.cs" />
     <Compile Include="Core\Providers\IReader.cs" />
     <Compile Include="Core\Providers\IWriter.cs" />
     <Compile Include="Data\IMovieDbContext.cs" />

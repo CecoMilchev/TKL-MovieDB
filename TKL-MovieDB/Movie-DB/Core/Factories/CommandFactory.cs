@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 using Models.Framework;
 using Ninject;
 using Bytes2you.Validation;
+using Movie_DB.Commands.Contracts;
 
 namespace Movie_DB.Commands.Core.Factories
 {
     public class CommandFactory : ICommandFactory
     {
-        public Person CreatePerson(string commandParams)
-        {
-            throw new NotImplementedException();
-        }
-
 
         private readonly IKernel kernel;
 
