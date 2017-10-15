@@ -10,14 +10,16 @@ namespace Movie_DB.Commands
 {
     public class CommandsProcessor : ICommandProcessor
     {
-        public void ProcessCommand(string commandNumber, ICommandFactory commandFactory)
+        private readonly ICommandFactory commandFactory;
+
+        public CommandsProcessor(ICommandFactory commandFactory)
         {
-            switch (commandNumber)
-            {
-                case "1":
-                   // commandFactory.
-                    break;
-            }
+            this.commandFactory = commandFactory;
+        }
+        public void ProcessCommand(string commandNumber) {
+            Console.WriteLine("processor called");
+          var command =  this.commandFactory.CreateCommand(commandNumber);
+            command.Execute();
         }
 
     }

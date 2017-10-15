@@ -7,6 +7,7 @@ using Models.Framework;
 using Ninject;
 using Bytes2you.Validation;
 using Movie_DB.Commands.Contracts;
+using Movie_DB.Ninject;
 
 namespace Movie_DB.Commands.Core.Factories
 {
@@ -22,8 +23,16 @@ namespace Movie_DB.Commands.Core.Factories
             this.kernel = kernel;
         }
 
-        public ICommand CreateCommand(string commandName)
+        public ICommand CreateCommand(string commandNumber)
         {
+            string commandName = "";
+            switch (commandNumber)
+            {
+                case "1":
+                    commandName = "CreatePersonCommand";
+                    Console.WriteLine("name assigned "+commandName);
+                    break;
+            }
             return this.kernel.Get<ICommand>(commandName);
         }
     }

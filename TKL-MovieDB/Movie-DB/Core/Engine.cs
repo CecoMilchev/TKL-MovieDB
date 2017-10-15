@@ -12,14 +12,13 @@ namespace Movie_DB.Core
     {
         public readonly IReader reader;
         public readonly IWriter writer;
-        public readonly IParser parser;
         public readonly ICommandProcessor commandProcessor;
 
-        public Engine(IReader reader, IWriter writer, IParser parser)
+        public Engine(IReader reader, IWriter writer, ICommandProcessor commandProcessor)
         {
             this.reader = reader;
             this.writer = writer;
-            this.parser = parser;
+            this.commandProcessor = commandProcessor;
         }
         
         public void Start()
@@ -31,7 +30,8 @@ namespace Movie_DB.Core
 
            string commandChoice = reader.ReadLine();
 
-            parser.ParseCommand(commandChoice);
+            commandProcessor.ProcessCommand(commandChoice);
+
         }
     }
 }

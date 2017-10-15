@@ -8,6 +8,7 @@ namespace Movie_DB.Commands.Contracts
 {
     public interface ICommand
     {
-        string Execute(string parameters);
+        void CollectData();
+        string Execute();
     }
 }

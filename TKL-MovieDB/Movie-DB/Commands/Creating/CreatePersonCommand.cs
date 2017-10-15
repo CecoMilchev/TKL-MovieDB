@@ -1,6 +1,8 @@
 ﻿using Bytes2you.Validation;
 using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
+using Movie_DB.Core.Providers;
+using Movie_DB.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,24 +13,36 @@ namespace Movie_DB.Commands.Creating
 {
     public class CreatePersonCommand : ICommand
     {
-        private readonly ITravellerContext context;
-        //private readonly IDatabase database;
+       // private readonly MovieDbContext context;
         private readonly IMovieFactory factory;
+        private readonly IReader reader;
+        private readonly IWriter writer;
+        private List<string> personData = new List<string>();
 
-        public CreatePersonCommand(ITravellerContext context, IDatabase database, IMovieFactory factory)
+        public CreatePersonCommand(/*MovieDbContext context,*/ IMovieFactory factory, IReader reader, IWriter writer)
         {
-            Guard.WhenArgument(context, "context").IsNull().Throw();
-            Guard.WhenArgument(database, "database").IsNull().Throw();
-            Guard.WhenArgument(factory, "factory").IsNull().Throw();
-
-            this.context = context;
-            this.database = database;
+           // this.context = context;
             this.factory = factory;
+            this.reader = reader;
+            this.writer = writer;
         }
 
-        public string Execute(IList<string> parameters)
+        public void CollectData()
         {
-            throw new NotImplementedException();
+            writer.WriteLine("Enter First Name:");
+            personData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Last Name:");
+            personData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Job:");
+            personData.Add(reader.ReadLine());
+        }
+
+        public string Execute()
+        {
+           CollectData();
+            var Person = this.factory.CreatePerson(personData[0], personData[1], personData[0]);
+            writer.Write("ei ma");
+            return "Person Created";
         }
     }
 }

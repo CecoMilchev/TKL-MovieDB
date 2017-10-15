@@ -9,6 +9,6 @@ namespace Movie_DB.Commands.Contracts
 {
     public interface ICommandProcessor
     {
-        void ProcessCommand(string commandNumber, ICommandFactory commandFactory);
+        void ProcessCommand(string commandNumber);
     }
 }
