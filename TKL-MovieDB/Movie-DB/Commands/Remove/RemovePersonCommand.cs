@@ -34,8 +34,8 @@ namespace Movie_DB.Commands.Remove
         public string Execute()
         {
             CollectData();
-            var removeByName = context.Persons.Where(x => x.FirstName == removeData[0] && x.LastName == removeData[1]).ToList();
-            context.Persons.Remove(removeByName[0]);
+            var removeByName = context.Persons.Where(x => x.FirstName == removeData[0] && x.LastName == removeData[1]);
+            context.Persons.Remove(removeByName);
 
             return @"=================
 Persons Removed!
