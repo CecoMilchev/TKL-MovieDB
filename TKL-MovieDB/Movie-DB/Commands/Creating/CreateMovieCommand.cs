@@ -37,8 +37,8 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Movie Title: ");
             movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Categories: ");
-            movieCategories.AddRange(reader.ReadLine().Split(' '));
+            //writer.WriteLine("Enter Categories: ");
+            //movieCategories.AddRange(reader.ReadLine().Split(' '));
 
             writer.WriteLine("Enter Year: ");
             movieData.Add(reader.ReadLine());
@@ -52,14 +52,14 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Synopsis: ");
             movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Writers: ");
-            movieWriters.AddRange(reader.ReadLine().Split(' '));
+            //writer.WriteLine("Enter Writers: ");
+            //movieWriters.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Directors: ");
-            movieDirectors.AddRange(reader.ReadLine().Split(' '));
+            //writer.WriteLine("Enter Directors: ");
+            //movieDirectors.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Cast: ");
-            movieCast.AddRange(reader.ReadLine().Split(' '));
+            //writer.WriteLine("Enter Cast: ");
+            //movieCast.AddRange(reader.ReadLine().Split(' '));
 
             writer.WriteLine("Enter Budget: ");
             movieData.Add(reader.ReadLine());
@@ -68,7 +68,7 @@ namespace Movie_DB.Commands.Creating
         public string Execute()
         {
             CollectData();
-            var movie = this.factory.CreateMovie(movieData[0], movieCategories, movieData[2], movieData[3],
+            var movie = this.factory.CreateMovie(movieData[0],  movieData[1], movieData[3],
                 movieData[4], movieData[5], movieData[6], movieData[7], movieData[8], movieData[9]);
 
             context.Movies.Add(movie);

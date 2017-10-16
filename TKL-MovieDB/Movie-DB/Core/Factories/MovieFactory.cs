@@ -28,7 +28,7 @@ namespace Movie_DB.Commands.Core.Factories
         {
             Movie movie = new Movie()
             {
-                //Name = name;
+                //    Name = name;
                 //Categories = categories;
                 //Year = year;
             };
