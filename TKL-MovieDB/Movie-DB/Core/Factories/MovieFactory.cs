@@ -21,17 +21,17 @@ namespace Movie_DB.Commands.Core.Factories
             return person;
         }
 
-        //public Movie CreateMovie(string name, ICollection<Category> categories, string year, string releaseDate, int rating, string synopsis,
-        //    ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
+        //public Movie CreateMovie(string title, ICollection<Genre> genres, string year, string releaseDate, int rating, string synopsis,
+        //   ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
         //{
         //    Movie movie = new Movie()
         //    {
-        //        Name = name,
-        //        //Categories = categories;
-        //        Year = year
+        //        Title = title,
+        //        Genres = genres
         //    };
-
         //}
+
+
 
         public Series CreateSeries(string name, int rating, string ongoing, int numberOfSeasons, int episodesPerSeason)
         {
@@ -48,6 +48,7 @@ namespace Movie_DB.Commands.Core.Factories
         }
     }
 }
+
 
 
 

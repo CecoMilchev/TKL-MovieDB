@@ -21,7 +21,7 @@ namespace Movie_DB.Commands.Creating
         private List<string> movieDirectors = new List<string>();
         private List<string> movieCast = new List<string>();
 
-        public CreateMovieCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+        public CreateMovieCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
         {
         }
@@ -31,8 +31,8 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Movie Title: ");
             movieData.Add(reader.ReadLine());
 
-            //writer.WriteLine("Enter Categories: ");
-            //movieCategories.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Genres: ");
+            movieCategories.AddRange(reader.ReadLine().Split(' '));
 
             writer.WriteLine("Enter Year: ");
             movieData.Add(reader.ReadLine());
@@ -46,14 +46,14 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Synopsis: ");
             movieData.Add(reader.ReadLine());
 
-            //writer.WriteLine("Enter Writers: ");
-            //movieWriters.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Writers: ");
+            movieWriters.AddRange(reader.ReadLine().Split(' '));
 
-            //writer.WriteLine("Enter Directors: ");
-            //movieDirectors.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Directors: ");
+            movieDirectors.AddRange(reader.ReadLine().Split(' '));
 
-            //writer.WriteLine("Enter Cast: ");
-            //movieCast.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Cast: ");
+            movieCast.AddRange(reader.ReadLine().Split(' '));
 
             writer.WriteLine("Enter Budget: ");
             movieData.Add(reader.ReadLine());
@@ -69,7 +69,7 @@ namespace Movie_DB.Commands.Creating
 
             context.SaveChanges();
 
-            return "Person Created";
+            return "Movie Created!";
         }
 
 

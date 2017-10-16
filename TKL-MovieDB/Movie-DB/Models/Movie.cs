@@ -8,24 +8,24 @@ namespace Models.Framework
     [NotMapped]
     public class Movie
     {
-        private ICollection<Genre> categories;
+        private ICollection<Genre> genres;
         private ICollection<Person> writers;
         private ICollection<Person> directors;
         private ICollection<Person> cast;
 
         public Movie()
         {
-            this.categories = new HashSet<Genre>();
+            this.genres = new HashSet<Genre>();
             this.writers = new HashSet<Person>();
             this.directors = new HashSet<Person>();
             this.cast = new HashSet<Person>();
         }
 
-        public Movie(string name, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
+        public Movie(string title, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
             ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
         {
-            this.Name = name;
-            this.Categories = new HashSet<Genre>();
+            this.Title = title;
+            this.Genres = new HashSet<Genre>();
             this.Year = year;
             this.ReleaseDate = releaseDate;
             this.Rating = rating;
@@ -40,10 +40,10 @@ namespace Models.Framework
 
         [Required]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "The Name's length cannot be less than 5 or more than 50 symbols long.")]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         [Required]
-        public ICollection<Genre> Categories { get; set; }
+        public ICollection<Genre> Genres { get; set; }
 
         public string Year { get; set; }
 
