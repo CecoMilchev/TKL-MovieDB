@@ -19,5 +19,14 @@ namespace Models.Framework
 
         [Required]
         public string Job { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format(@"
+|| First Name: {0}
+|| Last Name: {1}
+|| Job: {2}
+",this.FirstName, this.LastName, this.Job);
+        }
     }
 }

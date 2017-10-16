@@ -41,7 +41,9 @@ namespace Movie_DB.Commands.Creating
             context.Persons.Add(person);
             context.SaveChanges();
 
-            return "Person Created!";
+            return @"=================
+Person Created!
+=================";
         }
     }
 }

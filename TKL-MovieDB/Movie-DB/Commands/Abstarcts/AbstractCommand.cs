@@ -11,10 +11,10 @@ namespace Movie_DB.Commands.Abstarcts
 {
     public abstract class AbstractCommand
     {
+        protected readonly IMovieDbContext context;
         protected readonly IMovieFactory factory;
         protected readonly IReader reader;
         protected readonly IWriter writer;
-        protected readonly IMovieDbContext context;
 
         public AbstractCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
         {
