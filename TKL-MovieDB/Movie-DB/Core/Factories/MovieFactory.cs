@@ -9,6 +9,8 @@ namespace Movie_DB.Commands.Core.Factories
 {
     public class MovieFactory : IMovieFactory
     {
+
+
         public Person CreatePerson(string firstName, string lasttName, string job)
         {
             Person person = new Person()
@@ -20,5 +22,20 @@ namespace Movie_DB.Commands.Core.Factories
 
             return person;
         }
+
+        public Movie CreateMovie(string name, ICollection<Category> categories, string year, string releaseDate, int rating, string synopsis,
+            ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
+        {
+            Movie movie = new Movie()
+            {
+                //Name = name;
+                //Categories = categories;
+                //Year = year;
+            };
+
+        }
     }
 }
+
+
+

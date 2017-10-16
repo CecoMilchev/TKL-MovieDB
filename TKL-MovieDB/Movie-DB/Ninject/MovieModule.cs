@@ -25,6 +25,7 @@ namespace Movie_DB.Ninject
             this.Bind<IMovieFactory>().To<MovieFactory>();
             this.Bind<ICommandFactory>().To<CommandFactory>();
             this.Bind<ICommand>().To<CreatePersonCommand>().Named("CreatePersonCommand");
+            //this.Bind<ICommand>().To<CreateMovieCommand>().Named("CreateMovieCommand");
         }
     }
 }
