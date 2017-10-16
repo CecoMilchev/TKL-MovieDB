@@ -15,11 +15,6 @@ namespace Movie_DB.Commands.Creating
 {
    public class CreateMovieCommand : AbstractCommand, ICommand
     {
-        private readonly IMovieFactory factory;
-        private readonly IReader reader;
-        private readonly IWriter writer;
-        private readonly IMovieDbContext context;
-
         private List<string> movieData = new List<string>();
         private List<string> movieCategories = new List<string>();
         private List<string> movieWriters = new List<string>();

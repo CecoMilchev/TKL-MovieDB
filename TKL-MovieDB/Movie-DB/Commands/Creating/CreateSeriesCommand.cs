@@ -14,10 +14,6 @@ namespace Movie_DB.Commands.Creating
 {
    public class CreateSeriesCommand : AbstractCommand, ICommand
     {
-        private readonly IMovieFactory factory;
-        private readonly IReader reader;
-        private readonly IWriter writer;
-        private readonly IMovieDbContext context;
         private List<string> seriesData = new List<string>();
 
         public CreateSeriesCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
