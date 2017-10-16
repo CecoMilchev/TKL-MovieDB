@@ -13,7 +13,6 @@ namespace Models.Framework
     {
         public Category()
         {
-
         }
 
         public int Id { get; set; }

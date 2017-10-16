@@ -32,6 +32,10 @@ namespace Movie_DB.Commands.Core.Factories
                     commandName = "CreatePersonCommand";
                     Console.WriteLine("name assigned "+commandName);
                     break;
+                case "2":
+                    commandName = "CreateMovieCommand";
+                    Console.WriteLine("command assigned" + commandName);
+                    break;
             }
             return this.kernel.Get<ICommand>(commandName);
         }

@@ -26,7 +26,7 @@ namespace Movie_DB.Core
             writer.WriteLine("Welcome to TKL-MovieDB");
             writer.WriteLine("");
             writer.WriteLine("What do you want to do?");
-            writer.WriteLine("For CreatePerson press 1");
+            writer.WriteLine("For CreatePerson press 1, To create Movie press 2");
 
            string commandChoice = reader.ReadLine();
 
