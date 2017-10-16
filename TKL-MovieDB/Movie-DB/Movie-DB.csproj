@@ -63,6 +63,7 @@
     <Compile Include="Commands\Creating\CreatePersonCommand.cs" />
     <Compile Include="Commands\Creating\HelpCommand.cs" />
     <Compile Include="Commands\Listing\ListPersonsCommand.cs" />
+    <Compile Include="Commands\Remove\RemovePersonCommand.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\Factories\ICommandFactory.cs" />

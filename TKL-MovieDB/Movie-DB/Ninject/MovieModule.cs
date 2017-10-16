@@ -3,6 +3,7 @@ using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Commands.Creating;
 using Movie_DB.Commands.Listing;
+using Movie_DB.Commands.Remove;
 using Movie_DB.Core.Providers;
 using Movie_DB.Data;
 using Ninject.Modules;
@@ -28,6 +29,7 @@ namespace Movie_DB.Ninject
             this.Bind<ICommand>().To<CreatePersonCommand>().Named("Create Person");
             this.Bind<ICommand>().To<CreateMovieCommand>().Named("Create Movie");
             this.Bind<ICommand>().To<ListPersonsCommand>().Named("List Persons");
+            this.Bind<ICommand>().To<RemovePersonCommand>().Named("Remove Person");
             this.Bind<ICommand>().To<HelpCommand>().Named("/help");
         }
     }
