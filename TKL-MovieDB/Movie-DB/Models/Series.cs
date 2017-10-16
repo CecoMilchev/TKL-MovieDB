@@ -23,7 +23,7 @@ namespace Models.Framework
 
         public ICollection<Person> Cast { get; set; }
 
-        public bool Ongoing { get; set; }
+        public string Ongoing { get; set; }
 
         public int NumberOfSeasons { get; set; }
 

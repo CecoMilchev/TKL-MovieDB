@@ -33,7 +33,7 @@ namespace Movie_DB.Commands.Core.Factories
 
         //}
 
-        public Series CreateSeries(string name, int rating, bool ongoing, int numberOfSeasons, int episodesPerSeason)
+        public Series CreateSeries(string name, int rating, string ongoing, int numberOfSeasons, int episodesPerSeason)
         {
             Series series = new Series
             {
