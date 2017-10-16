@@ -9,8 +9,6 @@ namespace Movie_DB.Commands.Core.Factories
 {
     public class MovieFactory : IMovieFactory
     {
-
-
         public Person CreatePerson(string firstName, string lasttName, string job)
         {
             Person person = new Person()
@@ -33,6 +31,16 @@ namespace Movie_DB.Commands.Core.Factories
                 //Year = year;
             };
 
+        }
+
+        public Series CreateSeries()
+        {
+            Series series = new Series
+            {
+
+            };
+
+            return series;
         }
     }
 }
