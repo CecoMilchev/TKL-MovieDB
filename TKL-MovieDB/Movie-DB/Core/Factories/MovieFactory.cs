@@ -21,23 +21,27 @@ namespace Movie_DB.Commands.Core.Factories
             return person;
         }
 
-        public Movie CreateMovie(string name, ICollection<Category> categories, string year, string releaseDate, int rating, string synopsis,
-            ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
-        {
-            Movie movie = new Movie()
-            {
-                //    Name = name;
-                //Categories = categories;
-                //Year = year;
-            };
+        //public Movie CreateMovie(string name, ICollection<Category> categories, string year, string releaseDate, int rating, string synopsis,
+        //    ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
+        //{
+        //    Movie movie = new Movie()
+        //    {
+        //        Name = name,
+        //        //Categories = categories;
+        //        Year = year
+        //    };
 
-        }
+        //}
 
-        public Series CreateSeries()
+        public Series CreateSeries(string name, int rating, bool ongoing, int numberOfSeasons, int episodesPerSeason)
         {
             Series series = new Series
             {
-
+                Name = name,
+                // Rating = rating,
+                Ongoing = ongoing,
+                NumberOfSeasons = numberOfSeasons,
+                EpisodesPerSeason = episodesPerSeason
             };
 
             return series;

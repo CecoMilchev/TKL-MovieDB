@@ -68,10 +68,10 @@ namespace Movie_DB.Commands.Creating
         public string Execute()
         {
             CollectData();
-            var movie = this.factory.CreateMovie(movieData[0],  movieData[1], movieData[3],
-                movieData[4], movieData[5], movieData[6], movieData[7], movieData[8], movieData[9]);
+            //var movie = this.factory.CreateMovie(movieData[0],  movieData[1], movieData[3],
+            //    movieData[4], movieData[5], movieData[6], movieData[7], movieData[8], movieData[9]);
 
-            context.Movies.Add(movie);
+            //context.Movies.Add(movie);
 
             context.SaveChanges();
 

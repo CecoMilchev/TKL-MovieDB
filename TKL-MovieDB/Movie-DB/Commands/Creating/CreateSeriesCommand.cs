@@ -1,4 +1,5 @@
-﻿using Movie_DB.Commands.Core.Factories;
+﻿using Movie_DB.Commands.Contracts;
+using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Core.Providers;
 using Movie_DB.Data;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+
 
 namespace Movie_DB.Commands.Creating
 {
@@ -39,9 +40,9 @@ namespace Movie_DB.Commands.Creating
         public string Execute()
         {
             CollectData();
-            var series = this.factory.CreateSeries(personData[0], personData[1], personData[2]);
+            //var series = this.factory.CreateSeries();
 
-            context.Series.Add(series);
+            //context.SeriesCollection.Add(series);
 
             //context.SaveChanges();
 

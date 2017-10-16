@@ -11,7 +11,7 @@ namespace Models.Framework
         
         public string Name { get; set; }
 
-        public int Rating { get; set; }
+       // public int Rating { get; set; }
 
         public ICollection<Category> Categories { get; set; }
 
