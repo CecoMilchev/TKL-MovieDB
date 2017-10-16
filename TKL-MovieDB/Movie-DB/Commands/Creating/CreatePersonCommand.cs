@@ -23,6 +23,7 @@ namespace Movie_DB.Commands.Creating
 
         public void CollectData()
         {
+            writer.WriteLine("=================");
             writer.WriteLine("Enter First Name:");
             personData.Add(reader.ReadLine());
             writer.WriteLine("Enter Last Name:");
@@ -35,12 +36,12 @@ namespace Movie_DB.Commands.Creating
         {
             CollectData();
             var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
+            writer.WriteLine("Creating a Person...");
 
             context.Persons.Add(person);
-
             context.SaveChanges();
 
-            return "Person Created";
+            return "Person Created!";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Movie_DB.Commands.Abstarcts
         protected readonly IWriter writer;
         protected readonly IMovieDbContext context;
 
-        public AbstractCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+        public AbstractCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
         {
             this.context = context;
             this.factory = factory;

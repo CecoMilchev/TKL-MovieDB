@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace Models.Framework
 {
     [NotMapped]
-    public class Category
+    public class Genre
     {
-        public Category()
+        public Genre()
         {
         }
 

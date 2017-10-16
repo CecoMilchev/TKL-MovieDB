@@ -58,10 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Abstarcts\AbstractCommand.cs" />
-    <Compile Include="Commands\CommandsProcessor.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
-    <Compile Include="Commands\Contracts\ICommandProcessor.cs" />
-    <Compile Include="Commands\Creating\CreateCategory.cs" />
+    <Compile Include="Commands\Creating\CreateGenreCommand.cs" />
     <Compile Include="Commands\Creating\CreatePersonCommand.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
@@ -85,7 +83,7 @@
       <DependentUpon>201710151551394_Add Person Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Series.cs" />

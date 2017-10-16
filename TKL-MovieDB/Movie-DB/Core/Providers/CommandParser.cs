@@ -26,10 +26,5 @@ namespace Movie_DB.Core.Providers
 
             return this.factory.CreateCommand(commandName);
         }
-
-        public IList<string> ParseParameters(string fullCommand)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

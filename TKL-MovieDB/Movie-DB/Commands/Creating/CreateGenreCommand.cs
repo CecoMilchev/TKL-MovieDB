@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Movie_DB.Commands.Creating
 {
-    public class CreateCategory : AbstractCommand, ICommand
+    public class CreateGenreCommand : AbstractCommand, ICommand
     {
         private List<string> personData = new List<string>();
 
-        public CreateCategory(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+        public CreateGenreCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
         {
         }

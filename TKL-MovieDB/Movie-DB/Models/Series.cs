@@ -13,7 +13,7 @@ namespace Models.Framework
 
        // public int Rating { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<Genre> Genres { get; set; }
 
         public ICollection<Person> Creators { get; set; }
 

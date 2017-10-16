@@ -8,24 +8,24 @@ namespace Models.Framework
     [NotMapped]
     public class Movie
     {
-        private ICollection<Category> categories;
+        private ICollection<Genre> categories;
         private ICollection<Person> writers;
         private ICollection<Person> directors;
         private ICollection<Person> cast;
 
         public Movie()
         {
-            this.categories = new HashSet<Category>();
+            this.categories = new HashSet<Genre>();
             this.writers = new HashSet<Person>();
             this.directors = new HashSet<Person>();
             this.cast = new HashSet<Person>();
         }
 
-        public Movie(string name, ICollection<Category> categories, string year, string releaseDate, int rating, string synopsis,
+        public Movie(string name, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
             ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
         {
             this.Name = name;
-            this.Categories = new HashSet<Category>();
+            this.Categories = new HashSet<Genre>();
             this.Year = year;
             this.ReleaseDate = releaseDate;
             this.Rating = rating;
@@ -43,7 +43,7 @@ namespace Models.Framework
         public string Name { get; set; }
 
         [Required]
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<Genre> Categories { get; set; }
 
         public string Year { get; set; }
 

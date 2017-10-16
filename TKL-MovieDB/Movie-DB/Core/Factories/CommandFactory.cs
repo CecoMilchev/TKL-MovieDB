@@ -23,20 +23,8 @@ namespace Movie_DB.Commands.Core.Factories
             this.kernel = kernel;
         }
 
-        public ICommand CreateCommand(string commandNumber)
+        public ICommand CreateCommand(string commandName)
         {
-            string commandName = "";
-            switch (commandNumber)
-            {
-                case "1":
-                    commandName = "CreatePersonCommand";
-                    Console.WriteLine("name assigned "+commandName);
-                    break;
-                case "2":
-                    commandName = "CreateMovieCommand";
-                    Console.WriteLine("command assigned" + commandName);
-                    break;
-            }
             return this.kernel.Get<ICommand>(commandName);
         }
     }
