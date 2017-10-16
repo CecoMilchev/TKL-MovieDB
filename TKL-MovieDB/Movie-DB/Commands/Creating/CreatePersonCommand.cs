@@ -16,7 +16,7 @@ namespace Movie_DB.Commands.Creating
     {
         private List<string> personData = new List<string>();
 
-        public CreatePersonCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+        public CreatePersonCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
         {
         }
