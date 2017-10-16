@@ -57,9 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Abstarcts\AbstractCommand.cs" />
     <Compile Include="Commands\CommandsProcessor.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\Contracts\ICommandProcessor.cs" />
+    <Compile Include="Commands\Creating\CreateCategory.cs" />
     <Compile Include="Commands\Creating\CreatePersonCommand.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />

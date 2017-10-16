@@ -1,4 +1,6 @@
 ﻿using Models.Framework;
+using Movie_DB.Commands.Abstarcts;
+using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Core.Providers;
 using Movie_DB.Data;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Movie_DB.Commands.Creating
 {
-   public class CreateMovieCommand
+   public class CreateMovieCommand : AbstractCommand, ICommand
     {
         private readonly IMovieFactory factory;
         private readonly IReader reader;
@@ -25,11 +27,8 @@ namespace Movie_DB.Commands.Creating
         private List<string> movieCast = new List<string>();
 
         public CreateMovieCommand(MovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+            : base(context, factory, reader, writer)
         {
-            this.context = context;
-            this.factory = factory;
-            this.reader = reader;
-            this.writer = writer;
         }
 
         public void CollectData()
