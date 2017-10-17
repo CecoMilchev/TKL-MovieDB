@@ -20,21 +20,7 @@ namespace Models.Framework
             this.directors = new HashSet<Person>();
             this.cast = new HashSet<Person>();
         }
-
-        public Movie(string title, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
-            ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
-        {
-            this.Title = title;
-            this.Genres = new HashSet<Genre>();
-            this.Year = year;
-            this.ReleaseDate = releaseDate;
-            this.Rating = rating;
-            this.Synopsis = synopsis;
-            this.writers = new HashSet<Person>();
-            this.directors = new HashSet<Person>();
-            this.cast = new HashSet<Person>();
-            this.Budget = budget;
-        }
+        
 
         public int Id { get; set; }
 
