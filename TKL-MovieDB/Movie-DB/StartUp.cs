@@ -1,4 +1,5 @@
 ﻿using Models.Framework;
+using Movie_DB.Commands.Admin;
 using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Core;
 using Movie_DB.Data;
@@ -20,12 +21,12 @@ namespace Movie_DB
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
 
-            IKernel kernel = new StandardKernel(new MovieModule());
+            //IKernel kernel = new StandardKernel(new MovieModule());
 
-            IEngine engine = kernel.Get<Engine>();
-            engine.Start();
+            //IEngine engine = kernel.Get<Engine>();
+            //engine.Start();
 
             //using(var context = new MovieDbContext())
             //{
@@ -45,9 +46,13 @@ namespace Movie_DB
             //}
 
 
+            // JSON manual test
+            Genre genre = new Genre()
+            {
+                Name = "Comedy"
+            };
 
-
-
+            JSONController.SaveToFile(genre);
         }
     }
 }
