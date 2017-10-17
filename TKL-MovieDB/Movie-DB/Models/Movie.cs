@@ -43,7 +43,7 @@ namespace Models.Framework
         public string Title { get; set; }
 
         [Required]
-        public ICollection<Genre> Genres { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; }
 
         public string Year { get; set; }
 
@@ -56,11 +56,11 @@ namespace Models.Framework
 
         public string Synopsis { get; set; }
 
-        public ICollection<Person> Writers { get; set; }
+        public virtual ICollection<Person> Writers { get; set; }
 
-        public ICollection<Person> Directors { get; set; }
+        public virtual ICollection<Person> Directors { get; set; }
 
-        public ICollection<Person> Cast { get; set; }
+        public virtual ICollection<Person> Cast { get; set; }
 
         public decimal Budget { get; set; }
     }

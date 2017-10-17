@@ -38,6 +38,7 @@ namespace Movie_DB.Commands.Creating
             var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
             writer.WriteLine("Creating a Person...");
 
+            var shit = context.Persons.ToList();
             context.Persons.Add(person);
             context.SaveChanges();
 

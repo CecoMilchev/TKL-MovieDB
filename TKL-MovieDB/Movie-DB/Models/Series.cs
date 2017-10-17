@@ -13,15 +13,15 @@ namespace Models.Framework
 
        // public int Rating { get; set; }
 
-        public ICollection<Genre> Genres { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; }
 
-        public ICollection<Person> Creators { get; set; }
+        public virtual ICollection<Person> Creators { get; set; }
 
-        public ICollection<Person> Writers { get; set; }
+        public virtual ICollection<Person> Writers { get; set; }
 
-        public ICollection<Person> Actors { get; set; }
+        public virtual ICollection<Person> Actors { get; set; }
 
-        public ICollection<Person> Cast { get; set; }
+        public virtual ICollection<Person> Cast { get; set; }
 
         public string Ongoing { get; set; }
 
