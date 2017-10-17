@@ -22,10 +22,16 @@ namespace Movie_DB
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
 
-            IKernel kernel = new StandardKernel(new MovieModule());
+            //IKernel kernel = new StandardKernel(new MovieModule());
 
-            IEngine engine = kernel.Get<Engine>();
-            engine.Start();
+            //IEngine engine = kernel.Get<Engine>();
+            //engine.Start();
+
+            using(var context = new MovieDbContext())
+            {
+                var genre = context.Genres.Where(x=>x.Name == "comedy").ToString();
+                Console.WriteLine(genre.ToString());
+            }
 
             //XmlDocument doc = new XmlDocument();
             //doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");

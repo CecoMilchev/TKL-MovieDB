@@ -43,15 +43,16 @@ namespace Movie_DB.Commands.Core.Factories
 
 
 
-        public Series CreateSeries(string name, int rating, string ongoing, int numberOfSeasons, int episodesPerSeason)
+        public Series CreateSeries(string name, int genreId, /*int rating,*/  int numberOfSeasons, int episodesPerSeason, string ongoing)
         {
             Series series = new Series
             {
                 Name = name,
                 // Rating = rating,
-                Ongoing = ongoing,
+                GenreId = genreId,
                 NumberOfSeasons = numberOfSeasons,
-                EpisodesPerSeason = episodesPerSeason
+                EpisodesPerSeason = episodesPerSeason,
+                Ongoing = ongoing,
             };
 
             return series;

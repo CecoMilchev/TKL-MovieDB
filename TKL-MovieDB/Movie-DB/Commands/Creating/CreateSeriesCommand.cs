@@ -24,23 +24,27 @@ namespace Movie_DB.Commands.Creating
         public void CollectData()
         {
             writer.WriteLine("Enter Series Name:");
-            seriesData.Add(reader.ReadLine());
+            seriesData.Add(reader.ReadLine());// data 0
+            writer.WriteLine("Enter Series Genre:");
+            seriesData.Add(reader.ReadLine());// data 1
             writer.WriteLine("Enter Number Of Seasons:");
-            seriesData.Add(reader.ReadLine());
+            seriesData.Add(reader.ReadLine());// data 2
             writer.WriteLine("Enter Episodes Per Season:");
-            seriesData.Add(reader.ReadLine());
+            seriesData.Add(reader.ReadLine());// data 3
             writer.WriteLine("Enter Series ongoing status (yes/no):");
-            seriesData.Add(reader.ReadLine());
+            seriesData.Add(reader.ReadLine());// data 4
         }
 
         public string Execute()
         {
             CollectData();
-            //var series = this.factory.CreateSeries();
+           // var genre = context.Genres.Find(seriesData[1]);
 
-            //context.SeriesCollection.Add(series);
+           // var series = this.factory.CreateSeries(seriesData[0], seriesData[1],);
 
-            //context.SaveChanges();
+           // context.SeriesCollection.Add(series);
+
+            context.SaveChanges();
 
             return "Series Created";
         }
