@@ -37,14 +37,14 @@ namespace Models.Framework
         [Required]
         public string LastName { get; set; }
 
-        public ICollection<Movie> WatchList { get; set; }
+        public virtual ICollection<Movie> WatchList { get; set; }
 
-        public ICollection<Movie> MyRatings { get; set; }
+        public virtual ICollection<Movie> MyRatings { get; set; }
 
-        public ICollection<Movie> FavoriteMovies { get; set; }
+        public virtual ICollection<Movie> FavoriteMovies { get; set; }
 
-        public ICollection<Series> FavoriteSeries { get; set; }
+        public virtual ICollection<Series> FavoriteSeries { get; set; }
 
-        public ICollection<Person> FavoriteActors { get; set; }
+        public virtual ICollection<Person> FavoriteActors { get; set; }
     }
 }

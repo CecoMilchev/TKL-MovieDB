@@ -48,7 +48,7 @@ namespace Movie_DB.Core
 
             while (true)
             {
-               // try
+                try
                 {
                     var commandAsString = this.reader.ReadLine();
 
@@ -60,9 +60,9 @@ namespace Movie_DB.Core
 
                     this.ProcessCommand(commandAsString);
                 }
-               // catch (Exception ex)
+                catch (Exception ex)
                 {
-               //     this.Builder.AppendLine(ex.Message);
+                    this.Builder.AppendLine(ex.Message);
                 }
             }
         }
