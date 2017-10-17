@@ -21,6 +21,7 @@ namespace Movie_DB.Commands.Creating
         {
             commands.AppendLine("'Create Person' - creates a person");
             commands.AppendLine("'List Persons' - lists all persons by given context");
+            commands.AppendLine("'Remove Person' - remove person by first and last name");
             commands.AppendLine("'Exit' - exit the program");
 
             return commands.ToString();
