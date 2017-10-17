@@ -13,7 +13,9 @@ namespace Models.Framework
 
        // public int Rating { get; set; }
 
-        public virtual ICollection<Genre> Genres { get; set; }
+        public int? GenreId { get; set; }
+
+        public virtual Genre Genre { get; set; }
 
         public virtual ICollection<Person> Creators { get; set; }
 
