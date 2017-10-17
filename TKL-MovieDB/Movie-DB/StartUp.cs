@@ -20,26 +20,26 @@ namespace Movie_DB
     {
         static void Main(string[] args)
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
 
-            //IKernel kernel = new StandardKernel(new MovieModule());
+            IKernel kernel = new StandardKernel(new MovieModule());
 
-            //IEngine engine = kernel.Get<Engine>();
-            //engine.Start();
+            IEngine engine = kernel.Get<Engine>();
+            engine.Start();
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
-            XmlNode node = doc.DocumentElement.SelectSingleNode("/person/firstName");
+            //XmlNode node = doc.DocumentElement.SelectSingleNode("/person/firstName");
 
-            foreach (XmlNode n in doc.DocumentElement.ChildNodes)
-            {
-                string text = n.InnerText; //or loop through its children as well
-                Console.WriteLine(text);
-            }
-            
+            //foreach (XmlNode n in doc.DocumentElement.ChildNodes)
+            //{
+            //    string text = n.InnerText; //or loop through its children as well
+            //    Console.WriteLine(text);
+            //}
 
-         
+
+
 
 
         }

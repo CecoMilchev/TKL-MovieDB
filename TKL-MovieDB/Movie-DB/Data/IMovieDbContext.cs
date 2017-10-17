@@ -10,9 +10,11 @@ namespace Movie_DB.Data
 {
     public interface IMovieDbContext
     {
-        //IDbSet<Movie> Movies { get; set; }
+
         //IDbSet<User> Users { get; set; }
         IDbSet<Person> Persons { get; set; }
+        IDbSet<Genre> Genres { get; set; }
+        //IDbSet<Movie> Movies { get; set; }
         //IDbSet<Series> SeriesCollection { get; set; }
 
         int SaveChanges();

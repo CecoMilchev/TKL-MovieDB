@@ -48,8 +48,8 @@ namespace Movie_DB.Core
 
             while (true)
             {
-                try
-                {
+                //try
+                //{
                     var commandAsString = this.reader.ReadLine();
 
                     if (commandAsString.ToLower() == TerminationCommand.ToLower())
@@ -59,11 +59,11 @@ namespace Movie_DB.Core
                     }
 
                     this.ProcessCommand(commandAsString);
-                }
-                catch (Exception ex)
-                {
-                    this.Builder.AppendLine(ex.Message);
-                }
+                //}
+                //catch (Exception ex)
+                //{
+                //    this.Builder.AppendLine(ex.Message);
+                //}
             }
         }
         private void ProcessCommand(string commandAsString)

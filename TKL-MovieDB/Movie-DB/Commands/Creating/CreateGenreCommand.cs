@@ -13,7 +13,7 @@ namespace Movie_DB.Commands.Creating
 {
     public class CreateGenreCommand : AbstractCommand, ICommand
     {
-        private List<string> personData = new List<string>();
+        private string genreName;
 
         public CreateGenreCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
@@ -21,12 +21,21 @@ namespace Movie_DB.Commands.Creating
         }
         public void CollectData()
         {
-            throw new NotImplementedException();
+            writer.WriteLine("Enter Genre Name:");
+            genreName = reader.ReadLine();
         }
 
         public string Execute()
         {
-            throw new NotImplementedException();
+            CollectData();
+            var genre = this.factory.CreateGenre(genreName);
+
+            context.Genres.Add(genre);
+            context.SaveChanges();
+
+            return @"=================
+Genre Created!
+=================";
         }
     }
 }

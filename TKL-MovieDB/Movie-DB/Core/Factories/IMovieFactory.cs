@@ -15,5 +15,7 @@ namespace Movie_DB.Commands.Core.Factories
         //    ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget);
 
         Series CreateSeries(string name, int rating, string ongoing, int numberOfSeasons, int episodesPerSeason);
+
+        Genre CreateGenre(string name);
     }
 }

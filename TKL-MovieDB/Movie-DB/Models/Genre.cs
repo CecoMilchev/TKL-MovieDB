@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Models.Framework
 {
-    [NotMapped]
     public class Genre
     {
         public Genre()

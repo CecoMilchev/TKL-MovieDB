@@ -21,6 +21,16 @@ namespace Movie_DB.Commands.Core.Factories
             return person;
         }
 
+        public Genre CreateGenre(string name)
+        {
+            Genre genre = new Genre()
+            {
+                Name = name
+            };
+
+            return genre;
+        }
+
         //public Movie CreateMovie(string title, ICollection<Genre> genres, string year, string releaseDate, int rating, string synopsis,
         //   ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
         //{

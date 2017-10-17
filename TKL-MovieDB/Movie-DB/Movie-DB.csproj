@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201710161738451_Changed engine.Designer.cs">
       <DependentUpon>201710161738451_Changed engine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710171041345_added genre model.cs" />
+    <Compile Include="Migrations\201710171041345_added genre model.Designer.cs">
+      <DependentUpon>201710171041345_added genre model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710161738451_Changed engine.resx">
       <DependentUpon>201710161738451_Changed engine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171041345_added genre model.resx">
+      <DependentUpon>201710171041345_added genre model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

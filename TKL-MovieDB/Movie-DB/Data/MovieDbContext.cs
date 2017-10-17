@@ -14,12 +14,12 @@ namespace Movie_DB.Data
         public MovieDbContext()
             : base("MovieDbConnection")
         {
-           
         }
 
         //public IDbSet<Movie> Movies { get; set; }
         // public IDbSet<User> Users { get; set; }
         public IDbSet<Person> Persons { get; set; }
+        public IDbSet<Genre> Genres { get; set; }
         //public IDbSet<Series> SeriesCollection { get; set; }
 
 
