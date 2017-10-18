@@ -1,6 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using Models.Framework;
+using Movie_DB.Commands.Abstarcts;
+using Movie_DB.Commands.Core.Factories;
+using Movie_DB.Core.Providers;
+using Movie_DB.Data;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Linq;
+
 namespace Movie_DB.Commands.Admin
 {
     public class JSONController
@@ -25,5 +33,16 @@ namespace Movie_DB.Commands.Admin
         //}
 
         // var json = JsonConvert.DeserializeObject(obj);
+
+        public static Genre[] ReadGenresFromJSON()
+        {
+            var url = "../../Data/saved.json";
+            var json = File.ReadAllText(url);
+            var jsonObject = JObject.Parse(json);
+            int count = int.Parse(jsonObject.Children().FirstOrDefault(C => C.Path == "count").ToString());
+            Genre[] genres = new Genre[count];
+
+            return genres;
+        }
     }
 }
