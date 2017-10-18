@@ -35,18 +35,6 @@ namespace Movie_DB
             //    Console.WriteLine(genre.ToString());
             //}
 
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
-
-            //XmlNode node = doc.DocumentElement.SelectSingleNode("/person/firstName");
-
-            //foreach (XmlNode n in doc.DocumentElement.ChildNodes)
-            //{
-            //    string text = n.InnerText; //or loop through its children as well
-            //    Console.WriteLine(text);
-            //}
-
-
             // JSON manual test
             //Genre genre = new Genre()
             //{
@@ -58,34 +46,21 @@ namespace Movie_DB
 
             using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
-                List<string> list = XDocument.Parse(xmlDoc.ToString())
-                     .Descendants("person")
-                     .Select(x => x.ToString())
-                     .ToList();
+                XDocument doc = XDocument.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
-                foreach (var it in list)
+                var people = doc.Descendants("person");
+                List<string> peopleProps = new List<string>();
+                foreach (var item in people)
                 {
-                    Console.WriteLine(it.ToString());
+                    var things = item.Descendants();
+
+                    foreach (var it in things)
+                    {
+                        peopleProps.Add(it.Value);
+                    }
+
                 }
-                //XmlNodeList peopleCollection = xmlDoc.GetElementsByTagName("People");
-                //Console.WriteLine(peopleCollection);
-
-                
-
-                //foreach (var person in peopleCollection)
-                //{
-                //    XmlNodeList personFirstName = xmlDoc.GetElementsByTagName("firstName");
-                //    XmlNodeList personLastName = xmlDoc.GetElementsByTagName("lastName");
-                //    XmlNodeList personJob = xmlDoc.GetElementsByTagName("job");
-
-                //    Console.WriteLine(personFirstName[0].InnerText);
-                //    Console.WriteLine(personLastName[0].InnerText);
-                //    Console.WriteLine(personJob[0].InnerText);
-                //}
-
             }
         }
     }
