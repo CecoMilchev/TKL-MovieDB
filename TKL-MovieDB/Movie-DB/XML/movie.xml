@@ -1,6 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<person>
-  <firstName>ssad</firstName>
-  <lastName>ddss</lastName>
-  <job>rabota</job>
-</person>
+<People>
+  <person>
+    <firstName>Tom</firstName>
+    <lastName>Hanks</lastName>
+    <job>Actor</job>
+  </person>
+  <person>
+    <firstName>Johnny</firstName>
+    <lastName>Depp</lastName>
+    <job>Actor</job>
+  </person>
+  <person>
+    <firstName>Robert</firstName>
+    <lastName>DeNiro</lastName>
+    <job>Actor</job>
+  </person>
+  <person>
+    <firstName>Jack</firstName>
+    <lastName>Nicholson</lastName>
+    <job>Actor</job>
+  </person>
+  <person>
+    <firstName>Stanley</firstName>
+    <lastName>Kubrick</lastName>
+    <job>Director</job>
+  </person>
+  <person>
+    <firstName>David</firstName>
+    <lastName>Fincher</lastName>
+    <job>Director</job>
+  </person>
+  <person>
+    <firstName>Darren</firstName>
+    <lastName>Aronofsky</lastName>
+    <job>Director</job>
+  </person>
+  <person>
+    <firstName>Roman</firstName>
+    <lastName>Polanski</lastName>
+    <job>Director</job>
+  </person>
+  <person>
+    <firstName>Sergio</firstName>
+    <lastName>Leone</lastName>
+    <job>Writer</job>
+  </person>
+  <person>
+    <firstName>Christopher</firstName>
+    <lastName>Nolan</lastName>
+    <job>Writer</job>
+  </person>
+  <person>
+    <firstName>James</firstName>
+    <lastName>Cameron</lastName>
+    <job>Writer</job>
+  </person>
+  <person>
+    <firstName>Quentin</firstName>
+    <lastName>Tarantino</lastName>
+    <job>Writer</job>
+  </person>
+
+</People>
