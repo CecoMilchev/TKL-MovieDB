@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Framework
 {
@@ -29,22 +26,30 @@ namespace Models.Framework
         }
 
         [Required]
+        [JsonProperty("username")]
         public string Username { get; set; }
 
         [Required]
+        [JsonProperty("firstName")]
         public string FirstName { get; set; }
 
         [Required]
+        [JsonProperty("lastName")]
         public string LastName { get; set; }
 
+        [JsonProperty("watchList")]
         public virtual ICollection<Movie> WatchList { get; set; }
 
+        [JsonProperty("myRatings")]
         public virtual ICollection<Movie> MyRatings { get; set; }
 
+        [JsonProperty("favoriteMovies")]
         public virtual ICollection<Movie> FavoriteMovies { get; set; }
 
+        [JsonProperty("favoriteSeries")]
         public virtual ICollection<Series> FavoriteSeries { get; set; }
 
+        [JsonProperty("favoriteActors")]
         public virtual ICollection<Person> FavoriteActors { get; set; }
     }
 }

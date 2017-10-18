@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 namespace Movie_DB.Commands.Admin
 {
-   public class JSONController
+    public class JSONController
     {
         public static void ReturnJSON(Object obj)
         {
