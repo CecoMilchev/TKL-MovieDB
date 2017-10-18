@@ -9,6 +9,7 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,12 +48,45 @@ namespace Movie_DB
 
 
             // JSON manual test
-            Genre genre = new Genre()
-            {
-                Name = "Comedy"
-            };
+            //Genre genre = new Genre()
+            //{
+            //    Name = "Comedy"
+            //};
 
-            JSONController.SaveToFile(genre);
+            //JSONController.SaveToFile(genre);
+
+
+            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+
+                List<string> list = XDocument.Parse(xmlDoc.ToString())
+                     .Descendants("person")
+                     .Select(x => x.ToString())
+                     .ToList();
+
+                foreach (var it in list)
+                {
+                    Console.WriteLine(it.ToString());
+                }
+                //XmlNodeList peopleCollection = xmlDoc.GetElementsByTagName("People");
+                //Console.WriteLine(peopleCollection);
+
+                
+
+                //foreach (var person in peopleCollection)
+                //{
+                //    XmlNodeList personFirstName = xmlDoc.GetElementsByTagName("firstName");
+                //    XmlNodeList personLastName = xmlDoc.GetElementsByTagName("lastName");
+                //    XmlNodeList personJob = xmlDoc.GetElementsByTagName("job");
+
+                //    Console.WriteLine(personFirstName[0].InnerText);
+                //    Console.WriteLine(personLastName[0].InnerText);
+                //    Console.WriteLine(personJob[0].InnerText);
+                //}
+
+            }
         }
     }
 }
