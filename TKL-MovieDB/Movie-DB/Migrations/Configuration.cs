@@ -2,6 +2,7 @@ namespace Movie_DB.Migrations
 {
     using Models.Framework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.IO;
@@ -32,36 +33,33 @@ namespace Movie_DB.Migrations
             //    );
             //
 
+            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+                
+                var people = doc.DocumentElement;
+                if (true)
+                {
+                    foreach (XmlElement person in people)
+                    {
+                        var personFirstName = person["firstName"];
+                        var personLastName = person["lastName"];
+                        var personJob = person["job"];
 
+                        var myPerson = new Person()
+                        {
+                            FirstName = personFirstName.InnerText,
+                            LastName = personLastName.InnerText,
+                            Job = personJob.InnerText
+                        };
+                        context.Persons.Add(myPerson);
+                    }
+                }
+                context.SaveChanges();
+            }
 
-            //using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML"))
-            //{
-            //    string xml = reader.ReadToEnd();
-            //    dynamic parsed = JObject.Parse(xml);
-            //    foreach (var wrappedSellers in parsed)
-            //    {
-            //        foreach (var sellers in wrappedSellers)
-            //        {
-            //            foreach (var seller in sellers)
-            //            {
-            //                //Seller s = new Seller();
-            //                //s.FirstName = seller.firstName;
-            //                //s.LastName = seller.lastName;
-            //                //string countryName = seller.country;
-            //                //Country country = context.Countries.FirstOrDefault(w => w.Name == countryName);
-            //                //s.CountryId = country.Id;
-            //                //s.Country = country;
-            //                //s.Books = new HashSet<Book>();
-
-            //                //context.Sellers.AddOrUpdate(s);
-            //            }
-            //        }
-            //    }
-            //}
-            //XmlSerializer serializer = new XmlSerializer(typeof(Person));
-
-
-            
         }
     }
 }
+

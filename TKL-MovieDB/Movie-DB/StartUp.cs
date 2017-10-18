@@ -22,12 +22,12 @@ namespace Movie_DB
     {
         static void Main(string[] args)
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MovieDbContext, Configuration>());
 
-            //IKernel kernel = new StandardKernel(new MovieModule());
+            IKernel kernel = new StandardKernel(new MovieModule());
 
-            //IEngine engine = kernel.Get<Engine>();
-            //engine.Start();
+            IEngine engine = kernel.Get<Engine>();
+            engine.Start();
 
             //using(var context = new MovieDbContext())
             //{
@@ -43,25 +43,6 @@ namespace Movie_DB
 
             //JSONController.SaveToFile(genre);
 
-
-            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
-            {
-
-                XDocument doc = XDocument.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
-
-                var people = doc.Descendants("person");
-                List<string> peopleProps = new List<string>();
-                foreach (var item in people)
-                {
-                    var things = item.Descendants();
-
-                    foreach (var it in things)
-                    {
-                        peopleProps.Add(it.Value);
-                    }
-
-                }
-            }
         }
     }
 }
