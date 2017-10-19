@@ -9,13 +9,14 @@ namespace Movie_DB.Commands.Core.Factories
 {
     public class MovieFactory : IMovieFactory
     {
-        public Person CreatePerson(string firstName, string lasttName, string job)
+        public Person CreatePerson(string firstName, string lasttName, string job, string movie)
         {
             Person person = new Person()
             {
                 FirstName = firstName,
                 LastName = lasttName,
                 Job = job,
+                Movie = movie
             };
 
             return person;

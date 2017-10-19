@@ -39,10 +39,8 @@ namespace Movie_DB.Commands.Creating
         public string Execute()
         {
             CollectData();
-            var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
-            var movie = new Movie();
-            movie.Title = personData[3];
-            //person.Movies.Add(movie);
+            var person = this.factory.CreatePerson(personData[0], personData[1], personData[2], personData[3]);
+            
             writer.WriteLine("Creating a Person...");
 
 

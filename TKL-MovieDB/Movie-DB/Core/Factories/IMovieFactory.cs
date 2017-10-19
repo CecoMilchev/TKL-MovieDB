@@ -9,7 +9,7 @@ namespace Movie_DB.Commands.Core.Factories
 {
     public interface IMovieFactory
     {
-        Person CreatePerson(string firstName, string lasttName, string job);
+        Person CreatePerson(string firstName, string lasttName, string job, string movie);
 
         Movie CreateMovie(string name, ICollection<Genre> categories, string year, string releaseDate, /*int rating,*/ string synopsis,
             Person writer, Person director, ICollection<Person> cast, decimal budget);

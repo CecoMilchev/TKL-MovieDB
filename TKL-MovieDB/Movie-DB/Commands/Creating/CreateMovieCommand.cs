@@ -89,9 +89,9 @@ namespace Movie_DB.Commands.Creating
                 writer.WriteLine("Enter Last Name of the Writer:");
                 var lastName = reader.ReadLine();
                 var writerJob = "Writer";
-                var newWriter = this.factory.CreatePerson(movieData[4], lastName, writerJob);
+               // var newWriter = this.factory.CreatePerson(movieData[4], lastName, writerJob);
 
-                writerFromContext = newWriter;
+               // writerFromContext = newWriter;
                 //context.Persons.Add(newWriter);
                 //context.SaveChanges();
             }
@@ -103,9 +103,9 @@ namespace Movie_DB.Commands.Creating
                 writer.WriteLine("Enter Last Name of the Writer:");
                 var lastName = reader.ReadLine();
                 var directorJob = "Director";
-                var newDirector = this.factory.CreatePerson(movieData[5], lastName, directorJob);
+               // var newDirector = this.factory.CreatePerson(movieData[5], lastName, directorJob);
 
-                directorFromContext = newDirector;
+               // directorFromContext = newDirector;
                 //context.Persons.Add(newDirector);
                 //context.SaveChanges();
             }
@@ -129,9 +129,9 @@ namespace Movie_DB.Commands.Creating
                     writer.WriteLine("There is no such person in our database, so we are going to create this one for you");
                     writer.WriteLine("Enter job title for this person");
                     jobTitle = reader.ReadLine();
-                    var newPerson = this.factory.CreatePerson(personFirstName, personLastName, jobTitle);
+                   // var newPerson = this.factory.CreatePerson(personFirstName, personLastName, jobTitle);
 
-                    actorsToAdd.Add(newPerson);
+                   // actorsToAdd.Add(newPerson);
                     //context.Persons.Add(newPerson);
                     //context.SaveChanges();
                 }

@@ -34,31 +34,31 @@ namespace Movie_DB.Migrations
             //    );
             //
 
-            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
-            {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+            //using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            //{
+            //    XmlDocument doc = new XmlDocument();
+            //    doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
-                var people = doc.DocumentElement;
-                if (!context.Persons.Any())
-                {
-                    foreach (XmlElement person in people)
-                    {
-                        var personFirstName = person["firstName"];
-                        var personLastName = person["lastName"];
-                        var personJob = person["job"];
+            //    var people = doc.DocumentElement;
+            //    if (!context.Persons.Any())
+            //    {
+            //        foreach (XmlElement person in people)
+            //        {
+            //            var personFirstName = person["firstName"];
+            //            var personLastName = person["lastName"];
+            //            var personJob = person["job"];
 
-                        var myPerson = new Person()
-                        {
-                            FirstName = personFirstName.InnerText,
-                            LastName = personLastName.InnerText,
-                            Job = personJob.InnerText
-                        };
-                        context.Persons.Add(myPerson);
-                    }
-                }
-                context.SaveChanges();
-            }
+            //            var myPerson = new Person()
+            //            {
+            //                FirstName = personFirstName.InnerText,
+            //                LastName = personLastName.InnerText,
+            //                Job = personJob.InnerText
+            //            };
+            //            context.Persons.Add(myPerson);
+            //        }
+            //    }
+            //    context.SaveChanges();
+            //}
             var genres = JSONController.ReadGenresFromJSON();
             foreach (var g in genres)
             {
