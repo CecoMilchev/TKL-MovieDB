@@ -8,7 +8,6 @@ namespace Models.Framework
     {
         public Person()
         {
-            this.Movies = new HashSet<Movie>();
         }
 
         public int Id { get; set; }
@@ -26,8 +25,8 @@ namespace Models.Framework
         public string Job { get; set; }
 
         [Required]
-        [JsonProperty("movies")]
-        public ICollection<Movie> Movies { get; set; }
+        [JsonProperty("movie")]
+        public string Movie { get; set; }
 
         public override string ToString()
         {
