@@ -66,8 +66,12 @@
     <Compile Include="Commands\Creating\CreateGenreCommand.cs" />
     <Compile Include="Commands\Creating\CreatePersonCommand.cs" />
     <Compile Include="Commands\Creating\HelpCommand.cs" />
+    <Compile Include="Commands\Listing\ListMoviesCommand.cs" />
     <Compile Include="Commands\Listing\ListPersonsCommand.cs" />
+    <Compile Include="Commands\Listing\ListSeriesCommand.cs" />
+    <Compile Include="Commands\Remove\RemoveMovieCommand.cs" />
     <Compile Include="Commands\Remove\RemovePersonCommand.cs" />
+    <Compile Include="Commands\Remove\RemoveSeriesCommand.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\Factories\ICommandFactory.cs" />
@@ -75,7 +79,6 @@
     <Compile Include="Core\Factories\MovieFactory.cs" />
     <Compile Include="Commands\Creating\CreateMovieCommand.cs" />
     <Compile Include="Commands\Creating\CreateSeriesCommand.cs" />
-    <Compile Include="Commands\Creating\CreateUserCommand.cs" />
     <Compile Include="Core\IEngine.cs" />
     <Compile Include="Core\Providers\CommandParser.cs" />
     <Compile Include="Core\Providers\ConsoleReader.cs" />
@@ -123,7 +126,6 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Series.cs" />
     <Compile Include="Models\Synopsis.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Ninject\MovieModule.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
