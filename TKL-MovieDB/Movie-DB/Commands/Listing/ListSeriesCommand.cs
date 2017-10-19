@@ -56,10 +56,10 @@ namespace Movie_DB.Commands.Listing
                         var ordByLastGenre = context.SeriesCollection.Where(x => x.Genre.Name == listByParameter).ToList(); 
                         writer.Write(string.Join("\n", ordByLastGenre));
                         break;
-                    case "Year":
-                        var ordByYear = context.SeriesCollection.Where(x => x.Year == listByParameter).ToList();// waiting for Kristian
-                        writer.Write(string.Join("\n", ordByYear));
-                        break;
+                    //case "Year":
+                    //    var ordByYear = context.SeriesCollection.Where(x => x.Year == listByParameter).ToList();// waiting for Kristian
+                    //    writer.Write(string.Join("\n", ordByYear));
+                    //    break;
                 }
             }
             return @"=================

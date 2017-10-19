@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Framework
 {
-    [NotMapped]
+   
     public class Movie
     {
         private ICollection<Genre> genres;
@@ -20,7 +20,7 @@ namespace Models.Framework
         public int Id { get; set; }
 
         
-        [StringLength(50, MinimumLength = 5, 
+        [StringLength(50, MinimumLength = 2, 
             ErrorMessage = "The Name's length cannot be less than 5 or more than 50 symbols long.")]
         [JsonProperty("title")]
         public string Title { get; set; }
@@ -39,7 +39,7 @@ namespace Models.Framework
         //public int Rating { get; set; }
 
         
-        [StringLength(300, MinimumLength = 3,
+        [StringLength(300, MinimumLength = 2,
             ErrorMessage = "The Movie's Synopsis' length cannot be less than 80 or more than 300 symbols long.")]
         [JsonProperty("synopsis")]
         public string Synopsis { get; set; }

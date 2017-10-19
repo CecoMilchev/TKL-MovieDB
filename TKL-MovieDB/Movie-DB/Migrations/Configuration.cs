@@ -1,5 +1,6 @@
 namespace Movie_DB.Migrations
 {
+    using global::Models.Framework;
     using Models;
     using Movie_DB.Commands.Admin;
     using System;
@@ -33,32 +34,39 @@ namespace Movie_DB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\asdasd\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"C:\Users\Admin\Desktop\asdasd\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
-            //using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
-            //{
-            //    XmlDocument doc = new XmlDocument();
-            //    doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+                var people = doc.DocumentElement;
+                if (!context.Persons.Any())
+                {
+                    foreach (XmlElement person in people)
+                    {
+                        var personFirstName = person["firstName"];
+                        var personLastName = person["lastName"];
+                        var personJob = person["job"];
+                        var personMovie = person["movie"];
 
-            //    var people = doc.DocumentElement;
-            //    if (!context.Persons.Any())
-            //    {
-            //        foreach (XmlElement person in people)
-            //        {
-            //            var personFirstName = person["firstName"];
-            //            var personLastName = person["lastName"];
-            //            var personJob = person["job"];
+                        Console.WriteLine(personMovie.InnerText);
+                        if (personFirstName != null && personLastName != null
+                            && personJob != null && personMovie != null)
+                        {
+                            var myPerson = new Person()
+                            {
+                                FirstName = personFirstName.InnerText,
+                                LastName = personLastName.InnerText,
+                                Job = personJob.InnerText,
+                                Movie = personMovie.InnerText
+                            };
+                            context.Persons.Add(myPerson);
+                        }
+                    }
+                }
+                context.SaveChanges();
+            }
 
-            //            var myPerson = new Person()
-            //            {
-            //                FirstName = personFirstName.InnerText,
-            //                LastName = personLastName.InnerText,
-            //                Job = personJob.InnerText
-            //            };
-            //            context.Persons.Add(myPerson);
-            //        }
-            //    }
-            //    context.SaveChanges();
-            //}
             var genres = JSONController.ReadGenresFromJSON();
             foreach (var g in genres)
             {

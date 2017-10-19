@@ -136,6 +136,14 @@
     <Compile Include="Migrations\201710191630479_synopsis model.Designer.cs">
       <DependentUpon>201710191630479_synopsis model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710192023010_IncludeMovie.cs" />
+    <Compile Include="Migrations\201710192023010_IncludeMovie.Designer.cs">
+      <DependentUpon>201710192023010_IncludeMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710192148014_AddGenreMovieRelation.cs" />
+    <Compile Include="Migrations\201710192148014_AddGenreMovieRelation.Designer.cs">
+      <DependentUpon>201710192148014_AddGenreMovieRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710191630479_synopsis model.resx">
       <DependentUpon>201710191630479_synopsis model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710192023010_IncludeMovie.resx">
+      <DependentUpon>201710192023010_IncludeMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710192148014_AddGenreMovieRelation.resx">
+      <DependentUpon>201710192148014_AddGenreMovieRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

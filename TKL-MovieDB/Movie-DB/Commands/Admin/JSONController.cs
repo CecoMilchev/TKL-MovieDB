@@ -36,7 +36,7 @@ namespace Movie_DB.Commands.Admin
 
         public static Genre[] ReadGenresFromJSON()
         {
-            var url = @"../../Data/GenresData.json";
+            var url = @"C:\Users\Admin\Desktop\asdasd\TKL-MovieDB\TKL-MovieDB\Movie-DB\Data\GenresData.json";
             var json = File.ReadAllText(url);
             var jsonObject = JObject.Parse(json);
             int count = jsonObject.Value<int>("count");

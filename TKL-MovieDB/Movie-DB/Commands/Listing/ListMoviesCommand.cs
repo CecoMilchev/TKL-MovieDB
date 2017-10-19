@@ -48,15 +48,15 @@ namespace Movie_DB.Commands.Listing
                 {
                     case "Title":
                         var ordByFirstTitle = context.Movies.Where(x => x.Title == listByParameter).ToList();
-                        writer.Write(string.Join("\n", ordByFirstTitle));
+                        writer.WriteLine(string.Join("\n", ordByFirstTitle));
                         break;
                     case "Genre":
                         var ordByLastGenre = context.Movies.Where(x => x.Genres.Any(y => y.Name == listByParameter)).ToList(); // waiting for ceco
-                        writer.Write(string.Join("\n", ordByLastGenre));
+                        writer.WriteLine(string.Join("\n", ordByLastGenre.Select(m => m.Title)));
                         break;
                     case "Year":
                         var ordByYear = context.Movies.Where(x => x.Year == listByParameter).ToList(); ;
-                        writer.Write(string.Join("\n", ordByYear));
+                        writer.WriteLine(string.Join("\n", ordByYear));
                         break;
                 }
             }
