@@ -6,11 +6,9 @@ namespace Models.Framework
 {
     public class Person
     {
-        private ICollection<Movie> movies;
-        
         public Person()
         {
-            this.movies = new HashSet<Movie>();
+            this.Movies = new HashSet<Movie>();
         }
 
         public int Id { get; set; }
@@ -30,14 +28,7 @@ namespace Models.Framework
 
         public ICollection<Movie> Movies
         {
-            get
-            {
-                return this.movies;
-            }
-            set
-            {
-                this.movies = value;
-            }
+            get; set;
         }
 
         public override string ToString()
