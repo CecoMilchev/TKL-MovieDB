@@ -26,10 +26,8 @@ namespace Models.Framework
         public string Job { get; set; }
 
 
-        public ICollection<Movie> Movies
-        {
-            get; set;
-        }
+        public ICollection<Movie> Movies { get; set; }
+
 
         public override string ToString()
         {
