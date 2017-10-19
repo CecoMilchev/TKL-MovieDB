@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201710191259256_fixMe.Designer.cs">
       <DependentUpon>201710191259256_fixMe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710191546503_series collection.cs" />
+    <Compile Include="Migrations\201710191546503_series collection.Designer.cs">
+      <DependentUpon>201710191546503_series collection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710191259256_fixMe.resx">
       <DependentUpon>201710191259256_fixMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191546503_series collection.resx">
+      <DependentUpon>201710191546503_series collection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

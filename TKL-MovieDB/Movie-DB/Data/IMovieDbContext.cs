@@ -15,7 +15,7 @@ namespace Movie_DB.Data
         IDbSet<Person> Persons { get; set; }
         IDbSet<Genre> Genres { get; set; }
         //IDbSet<Movie> Movies { get; set; }
-        //IDbSet<Series> SeriesCollection { get; set; }
+        IDbSet<Series> SeriesCollection { get; set; }
 
         int SaveChanges();
     }

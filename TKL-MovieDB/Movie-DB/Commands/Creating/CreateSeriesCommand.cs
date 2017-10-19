@@ -12,9 +12,13 @@ using System.Threading.Tasks;
 
 namespace Movie_DB.Commands.Creating
 {
-   public class CreateSeriesCommand : AbstractCommand, ICommand
+    public class CreateSeriesCommand : AbstractCommand, ICommand
     {
-        private List<string> seriesData = new List<string>();
+        private string name;
+        private string genreName;
+        private string ongoing;
+        private int numberOfSeasons;
+        private int episodesPerSeason;
 
         public CreateSeriesCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
@@ -24,25 +28,29 @@ namespace Movie_DB.Commands.Creating
         public void CollectData()
         {
             writer.WriteLine("Enter Series Name:");
-            seriesData.Add(reader.ReadLine());// data 0
+            name = reader.ReadLine();
             writer.WriteLine("Enter Series Genre:");
-            seriesData.Add(reader.ReadLine());// data 1
-            writer.WriteLine("Enter Number Of Seasons:");
-            seriesData.Add(reader.ReadLine());// data 2
-            writer.WriteLine("Enter Episodes Per Season:");
-            seriesData.Add(reader.ReadLine());// data 3
-            writer.WriteLine("Enter Series ongoing status (yes/no):");
-            seriesData.Add(reader.ReadLine());// data 4
+            genreName = reader.ReadLine();
+            //writer.WriteLine("Enter Number Of Seasons:");
+            //seriesData.Add(reader.ReadLine());// data 2
+            //writer.WriteLine("Enter Episodes Per Season:");
+            //seriesData.Add(reader.ReadLine());// data 3
+            //writer.WriteLine("Enter Series ongoing status (yes/no):");
+            //seriesData.Add(reader.ReadLine());// data 4
         }
 
         public string Execute()
         {
             CollectData();
-           // var genre = context.Genres.Find(seriesData[1]);
+            var genre = context.Genres.FirstOrDefault(g => g.Name == genreName);
+            //if (genre == null)
+            //{
+            //   genre = new CreateGenreCommand(genreName);
+            //}
 
-           // var series = this.factory.CreateSeries(seriesData[0], seriesData[1],);
+             var series = this.factory.CreateSeries(name, genre);
 
-           // context.SeriesCollection.Add(series);
+             context.SeriesCollection.Add(series);
 
             context.SaveChanges();
 

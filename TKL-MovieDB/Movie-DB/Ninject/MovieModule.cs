@@ -29,8 +29,10 @@ namespace Movie_DB.Ninject
             this.Bind<ICommand>().To<CreatePersonCommand>().Named("Create Person");
             this.Bind<ICommand>().To<CreateGenreCommand>().Named("Create Genre");
             this.Bind<ICommand>().To<CreateMovieCommand>().Named("Create Movie");
+            this.Bind<ICommand>().To<CreateSeriesCommand>().Named("Create Series");
             this.Bind<ICommand>().To<ListPersonsCommand>().Named("List Persons");
             this.Bind<ICommand>().To<RemovePersonCommand>().Named("Remove Person");
+
             this.Bind<ICommand>().To<HelpCommand>().Named("/help");
         }
     }

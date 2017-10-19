@@ -20,7 +20,7 @@ namespace Movie_DB.Data
         // public IDbSet<User> Users { get; set; }
         public IDbSet<Person> Persons { get; set; }
         public IDbSet<Genre> Genres { get; set; }
-        //public IDbSet<Series> SeriesCollection { get; set; }
+        public IDbSet<Series> SeriesCollection { get; set; }
 
 
     }
