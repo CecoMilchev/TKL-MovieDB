@@ -64,7 +64,7 @@ namespace Movie_DB.Commands.Creating
 
             foreach (var genre in movieGenres)
             {
-                Genre genreFromContext = context.Genres.Where(r => r.Name == genre).First();
+                Genre genreFromContext = context.Genres.Where(r => r.Name == genre).FirstOrDefault();
 
                 if (genre == genreFromContext.Name)
                 {
@@ -82,7 +82,7 @@ namespace Movie_DB.Commands.Creating
 
             }
 
-            Person writerFromContext = context.Persons.Where(p => p.FirstName == movieData[4]).First();
+            Person writerFromContext = context.Persons.Where(p => p.FirstName == movieData[4]).FirstOrDefault();
             if (writerFromContext.FirstName != movieData[4])
             {
                 writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
@@ -96,7 +96,7 @@ namespace Movie_DB.Commands.Creating
                 //context.SaveChanges();
             }
 
-            Person directorFromContext = context.Persons.Where(p => p.FirstName == movieData[5]).First();
+            Person directorFromContext = context.Persons.Where(p => p.FirstName == movieData[5]).FirstOrDefault();
             if (directorFromContext.FirstName != movieData[5])
             {
                 writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
