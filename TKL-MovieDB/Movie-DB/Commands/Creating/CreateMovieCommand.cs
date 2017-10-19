@@ -31,7 +31,7 @@ namespace Movie_DB.Commands.Creating
             movieData.Add(reader.ReadLine());
 
             writer.WriteLine("Enter Genres: ");
-            movieGenres.AddRange(reader.ReadLine().Split(' '));
+            movieGenres.AddRange(reader.ReadLine().Split(new[] { ' ' },StringSplitOptions.RemoveEmptyEntries));
 
             writer.WriteLine("Enter Year: ");
             movieData.Add(reader.ReadLine()); //movieData[1]
@@ -49,7 +49,7 @@ namespace Movie_DB.Commands.Creating
             movieData.Add(reader.ReadLine()); //movieData[5]
 
             writer.WriteLine("Enter Cast: ");
-            movieCast.AddRange(reader.ReadLine().Split(','));
+            movieCast.AddRange(reader.ReadLine().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
 
             writer.WriteLine("Enter Budget: ");
             movieData.Add(reader.ReadLine());//movieData[6]

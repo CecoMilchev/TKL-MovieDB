@@ -5,19 +5,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Framework
 {
-   
+
     public class Movie
     {
         private ICollection<Genre> genres;
+
         private ICollection<Person> cast;
+
+
+
 
         public Movie()
         {
             this.genres = new HashSet<Genre>();
-            this.cast = new HashSet<Person>();
+            this.Cast = new HashSet<Person>();
         }
-        
+
         public int Id { get; set; }
+        public int WriterId { get; set; }
+        public int DirectorId{ get; set; }
+       
 
         
         [StringLength(50, MinimumLength = 2, 

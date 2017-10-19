@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201710192148014_AddGenreMovieRelation.Designer.cs">
       <DependentUpon>201710192148014_AddGenreMovieRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710192323212_ActorsToMovie.cs" />
+    <Compile Include="Migrations\201710192323212_ActorsToMovie.Designer.cs">
+      <DependentUpon>201710192323212_ActorsToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710192148014_AddGenreMovieRelation.resx">
       <DependentUpon>201710192148014_AddGenreMovieRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710192323212_ActorsToMovie.resx">
+      <DependentUpon>201710192323212_ActorsToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
