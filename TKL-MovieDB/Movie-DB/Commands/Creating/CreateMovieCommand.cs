@@ -61,12 +61,14 @@ namespace Movie_DB.Commands.Creating
             ICollection<Person> actorsToAdd = new Collection<Person>();
 
             CollectData();
-
+            var movieTitle = movieData[0];
+            var writerName = movieData[4];
+            var directorName = movieData[5];
             foreach (var genre in movieGenres)
             {
                 Genre genreFromContext = context.Genres.Where(r => r.Name == genre).FirstOrDefault();
 
-                if (genre == genreFromContext.Name)
+                if (genreFromContext != null &&genre == genreFromContext.Name)
                 {
                     movieGenresToAdd.Add(genreFromContext);
                 }
@@ -79,33 +81,32 @@ namespace Movie_DB.Commands.Creating
                     //context.Genres.Add(newGenre);
                     //context.SaveChanges();
                 }
-
             }
 
-            Person writerFromContext = context.Persons.Where(p => p.FirstName == movieData[4]).FirstOrDefault();
-            if (writerFromContext.FirstName != movieData[4])
+            Person writerFromContext = context.Persons.Where(p => p.FirstName == writerName).FirstOrDefault();
+            if (writerFromContext == null ||  writerFromContext.FirstName != writerName)
             {
                 writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
                 writer.WriteLine("Enter Last Name of the Writer:");
                 var lastName = reader.ReadLine();
                 var writerJob = "Writer";
-               // var newWriter = this.factory.CreatePerson(movieData[4], lastName, writerJob);
+                var newWriter = this.factory.CreatePerson(writerName, lastName, writerJob, movieTitle);
 
-               // writerFromContext = newWriter;
+                writerFromContext = newWriter;
                 //context.Persons.Add(newWriter);
                 //context.SaveChanges();
             }
 
-            Person directorFromContext = context.Persons.Where(p => p.FirstName == movieData[5]).FirstOrDefault();
-            if (directorFromContext.FirstName != movieData[5])
+            Person directorFromContext = context.Persons.Where(p => p.FirstName == directorName).FirstOrDefault();
+            if (directorFromContext == null || directorFromContext.FirstName != directorName)
             {
                 writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
                 writer.WriteLine("Enter Last Name of the Writer:");
                 var lastName = reader.ReadLine();
                 var directorJob = "Director";
-               // var newDirector = this.factory.CreatePerson(movieData[5], lastName, directorJob);
+                 var newDirector = this.factory.CreatePerson(directorName, lastName, directorJob, movieTitle);
 
-               // directorFromContext = newDirector;
+                // directorFromContext = newDirector;
                 //context.Persons.Add(newDirector);
                 //context.SaveChanges();
             }
@@ -119,7 +120,7 @@ namespace Movie_DB.Commands.Creating
                                         Where(n => n.FirstName == personFirstName && n.LastName == personLastName)
                                         .First();
 
-                if (personFromContext.FirstName == personFirstName && personFromContext.LastName == personLastName)
+                if (personFromContext != null && personFromContext.FirstName == personFirstName && personFromContext.LastName == personLastName)
                 {
                     actorsToAdd.Add(personFromContext);
                 }
@@ -129,9 +130,9 @@ namespace Movie_DB.Commands.Creating
                     writer.WriteLine("There is no such person in our database, so we are going to create this one for you");
                     writer.WriteLine("Enter job title for this person");
                     jobTitle = reader.ReadLine();
-                   // var newPerson = this.factory.CreatePerson(personFirstName, personLastName, jobTitle);
+                    var newPerson = this.factory.CreatePerson(personFirstName, personLastName, jobTitle, movieTitle);
 
-                   // actorsToAdd.Add(newPerson);
+                    actorsToAdd.Add(newPerson);
                     //context.Persons.Add(newPerson);
                     //context.SaveChanges();
                 }
@@ -139,9 +140,9 @@ namespace Movie_DB.Commands.Creating
             }
 
             var budgetDecimal = decimal.Parse(movieData[6]);
-            var movie = this.factory.CreateMovie(movieData[0], movieGenresToAdd, movieData[1], movieData[2], movieData[3], 
+            var movie = this.factory.CreateMovie(movieData[0], movieGenresToAdd, movieData[1], movieData[2], movieData[3],
                 writerFromContext, directorFromContext, actorsToAdd, budgetDecimal);
-           
+
             //context.Movies.Add(movie);
 
             //context.SaveChanges();
