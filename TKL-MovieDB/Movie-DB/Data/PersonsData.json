@@ -175,6 +175,41 @@
             "job": "actor",
             "movie": "",
             "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Dan",
+            "lastName": "Harmon",
+            "job": "creator",
+            "movie": "",
+            "series": "Rick and Morty"
+        },
+        {
+            "firstName": "Justin",
+            "lastName": "Roiland",
+            "job": "creator",
+            "movie": "",
+            "series": "Rick and Morty"
+        },
+        {
+            "firstName": "Chris",
+            "lastName": "Parnell",
+            "job": "actor",
+            "movie": "",
+            "series": "Rick and Morty"
+        },
+        {
+            "firstName": "Spencer ",
+            "lastName": "Grammer",
+            "job": "actor",
+            "movie": "",
+            "series": "Rick and Morty"
+        },
+        {
+            "firstName": "Sarah",
+            "lastName": "Chalke",
+            "job": "actor",
+            "movie": "",
+            "series": "Rick and Morty"
         }
     ]
 }
