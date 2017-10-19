@@ -31,8 +31,8 @@ namespace Movie_DB.Commands.Core.Factories
             return genre;
         }
 
-        public Movie CreateMovie(string title, ICollection<Genre> genres, string year, string releaseDate, int rating, string synopsis,
-           ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget)
+        public Movie CreateMovie(string title, ICollection<Genre> genres, string year, string releaseDate,/* int rating,*/ string synopsis,
+           Person writer, Person director, ICollection<Person> cast, decimal budget)
         {
             Movie movie = new Movie()
             {
@@ -40,10 +40,10 @@ namespace Movie_DB.Commands.Core.Factories
                 Genres = genres,
                 Year = year,
                 ReleaseDate = releaseDate,
-                Rating = rating,
+                //Rating = rating,
                 Synopsis = synopsis,
-                Writers = writers,
-                Directors = directors,
+                Writer = writer,
+                Director = director,
                 Cast = cast,
                 Budget = budget
             };

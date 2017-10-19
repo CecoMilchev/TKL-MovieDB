@@ -7,6 +7,7 @@ using Movie_DB.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,6 @@ namespace Movie_DB.Commands.Creating
     {
         private List<string> movieData = new List<string>();
         private List<string> movieGenres = new List<string>();
-        private List<string> movieWriters = new List<string>();
         private List<string> movieCast = new List<string>();
 
         public CreateMovieCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
@@ -27,7 +27,7 @@ namespace Movie_DB.Commands.Creating
 
         public void CollectData()
         {
-            writer.WriteLine("Enter Movie Title: ");
+            writer.WriteLine("Enter Movie Title: "); // movieData[0]
             movieData.Add(reader.ReadLine());
 
             writer.WriteLine("Enter Genres: ");
@@ -42,66 +42,111 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Synopsis: ");
             movieData.Add(reader.ReadLine()); //movieData[3]
 
-            writer.WriteLine("Enter Writers: ");
-            movieWriters.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Writer: ");
+            movieData.Add(reader.ReadLine());//movieData[4]
 
             writer.WriteLine("Enter Director: ");
-            movieData.Add(reader.ReadLine()); //movieData[4]
+            movieData.Add(reader.ReadLine()); //movieData[5]
 
             writer.WriteLine("Enter Cast: ");
-            movieCast.AddRange(reader.ReadLine().Split(' '));
+            movieCast.AddRange(reader.ReadLine().Split(','));
 
-            writer.WriteLine("Enter Budget: "); //movieData[5]
-            movieData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Budget: ");
+            movieData.Add(reader.ReadLine());//movieData[6]
         }
 
         public string Execute()
         {
+            ICollection<Genre> movieGenresToAdd = new Collection<Genre>();
+            ICollection<Person> actorsToAdd = new Collection<Person>();
+
             CollectData();
-            var movie = this.factory.CreateMovie();
-            movie.Title = movieData[0]; //title
 
             foreach (var genre in movieGenres)
             {
-                var genreFromContext = context.Genres.Where(r => r.Name == genre).First();
+                Genre genreFromContext = context.Genres.Where(r => r.Name == genre).First();
 
                 if (genre == genreFromContext.Name)
                 {
-                    movie.Genres.Add(genreFromContext);
+                    movieGenresToAdd.Add(genreFromContext);
                 }
                 else
                 {
-                    context.Genres.Add(new Genre() { Name = genre });
+                    writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
+                    var newGenre = this.factory.CreateGenre(genre);
+
+                    movieGenresToAdd.Add(newGenre);
+                    //context.Genres.Add(newGenre);
+                    //context.SaveChanges();
                 }
 
             }
 
-            movie.Year = movieData[1]; //year
-            movie.ReleaseDate = movieData[2]; // release date
-            movie.Synopsis = movieData[3];
-
-            foreach (var writer in movieWriters) // writers
+            Person writerFromContext = context.Persons.Where(p => p.FirstName == movieData[4]).First();
+            if (writerFromContext.FirstName != movieData[4])
             {
-                var writerFromContext = context.Persons.Where(r => r.FirstName == writer).First();
+                writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
+                writer.WriteLine("Enter Last Name of the Writer:");
+                var lastName = reader.ReadLine();
+                var writerJob = "Writer";
+                var newWriter = this.factory.CreatePerson(movieData[4], lastName, writerJob);
 
-                if (writer == writerFromContext.Name)
+                writerFromContext = newWriter;
+                //context.Persons.Add(newWriter);
+                //context.SaveChanges();
+            }
+
+            Person directorFromContext = context.Persons.Where(p => p.FirstName == movieData[5]).First();
+            if (directorFromContext.FirstName != movieData[5])
+            {
+                writer.WriteLine("There is no such genre in our database, so we are going to create this one for you");
+                writer.WriteLine("Enter Last Name of the Writer:");
+                var lastName = reader.ReadLine();
+                var directorJob = "Director";
+                var newDirector = this.factory.CreatePerson(movieData[5], lastName, directorJob);
+
+                directorFromContext = newDirector;
+                //context.Persons.Add(newDirector);
+                //context.SaveChanges();
+            }
+
+            foreach (var person in movieCast)
+            {
+                string[] personFullName = person.Split(' ');
+                string personFirstName = personFullName[0];
+                string personLastName = personFullName[1];
+                Person personFromContext = context.Persons.
+                                        Where(n => n.FirstName == personFirstName && n.LastName == personLastName)
+                                        .First();
+
+                if (personFromContext.FirstName == personFirstName && personFromContext.LastName == personLastName)
                 {
-                    movie.Genres.Add(genreFromContext);
+                    actorsToAdd.Add(personFromContext);
                 }
                 else
                 {
-                    context.Genres.Add(new Genre() { Name = genre });
+                    string jobTitle = string.Empty;
+                    writer.WriteLine("There is no such person in our database, so we are going to create this one for you");
+                    writer.WriteLine("Enter job title for this person");
+                    jobTitle = reader.ReadLine();
+                    var newPerson = this.factory.CreatePerson(personFirstName, personLastName, jobTitle);
+
+                    actorsToAdd.Add(newPerson);
+                    //context.Persons.Add(newPerson);
+                    //context.SaveChanges();
                 }
 
             }
-            context.Movies.Add(movie);
 
-            context.SaveChanges();
+            var budgetDecimal = decimal.Parse(movieData[6]);
+            var movie = this.factory.CreateMovie(movieData[0], movieGenresToAdd, movieData[1], movieData[2], movieData[3], 
+                writerFromContext, directorFromContext, actorsToAdd, budgetDecimal);
+           
+            //context.Movies.Add(movie);
+
+            //context.SaveChanges();
 
             return "Movie Created!";
         }
-
-
-
     }
 }

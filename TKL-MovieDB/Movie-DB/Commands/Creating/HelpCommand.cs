@@ -20,6 +20,7 @@ namespace Movie_DB.Commands.Creating
         public string Execute()
         {
             commands.AppendLine("'Create Person' - creates a person");
+            commands.AppendLine("'Create Movie' - creates a movie");
             commands.AppendLine("'List Persons' - lists all persons by given context");
             commands.AppendLine("'Remove Person' - remove person by first and last name");
             commands.AppendLine("'Exit' - exit the program");
