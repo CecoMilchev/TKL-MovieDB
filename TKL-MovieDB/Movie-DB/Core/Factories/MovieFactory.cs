@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Movie_DB.Models;
 
 namespace Movie_DB.Commands.Core.Factories
 {
@@ -41,7 +42,6 @@ namespace Movie_DB.Commands.Core.Factories
                 Genres = genres,
                 Year = year,
                 ReleaseDate = releaseDate,
-                //Rating = rating,
                 Synopsis = synopsis,
                 Writer = writer,
                 Director = director,
@@ -52,33 +52,29 @@ namespace Movie_DB.Commands.Core.Factories
             return movie;
         }
 
-
-
-        //public Series CreateSeries(string name, int genreId, /*int rating,*/  int numberOfSeasons, int episodesPerSeason, string ongoing)
-        //{
-        //    Series series = new Series
-        //    {
-        //        Name = name,
-        //        // Rating = rating,
-        //        //NumberOfSeasons = numberOfSeasons,
-        //        //EpisodesPerSeason = episodesPerSeason,
-        //        //Ongoing = ongoing,
-        //    };
-
-        //    return series;
-        //}
+        
         public Series CreateSeries(string name, Genre genre)
         {
             Series series = new Series
             {
                 Name = name,
                 Genre = genre
-                //NumberOfSeasons = numberOfSeasons,
-                //EpisodesPerSeason = episodesPerSeason,
-                //Ongoing = ongoing,
+                
             };
 
             return series;
+        }
+
+        public Synopsis CreateSynopsis(string movieTitle, string text)
+        {
+            Synopsis synopsis = new Synopsis
+            {
+                MovieTitle = movieTitle,
+                Text = text
+
+            };
+
+            return synopsis;
         }
     }
 }
