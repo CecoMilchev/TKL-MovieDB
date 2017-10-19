@@ -40,23 +40,25 @@ namespace Movie_DB.Commands.Listing
 
             if (listData[1] == "List All")
             {
-                writer.Write(string.Join("\n", context.Persons.ToList()));
+                writer.Write(string.Join("\n", context.Movies.ToList()));
             }
-
-            switch (listedObjectsBy)
+            else
             {
-                case "Title":
-                    var ordByFirstTitle = context.Movies.Where(x => x.Title == listByParameter).ToList();
-                    writer.Write(string.Join("\n", ordByFirstTitle));
-                    break;
-                case "Genre":
-                    var ordByLastGenre = context.Movies.Where(x => x.Genres == listByParameter).ToList(); // waiting for ceco
-                    writer.Write(string.Join("\n", ordByLastGenre));
-                    break;
-                case "Year":
-                    var ordByYear = context.Movies.Where(x => x.Year == listByParameter).ToList(); ;
-                    writer.Write(string.Join("\n", ordByYear));
-                    break;
+                switch (listedObjectsBy)
+                {
+                    case "Title":
+                        var ordByFirstTitle = context.Movies.Where(x => x.Title == listByParameter).ToList();
+                        writer.Write(string.Join("\n", ordByFirstTitle));
+                        break;
+                    case "Genre":
+                        var ordByLastGenre = context.Movies.Where(x => x.Genres.Any(y => y.Name == listByParameter)).ToList(); // waiting for ceco
+                        writer.Write(string.Join("\n", ordByLastGenre));
+                        break;
+                    case "Year":
+                        var ordByYear = context.Movies.Where(x => x.Year == listByParameter).ToList(); ;
+                        writer.Write(string.Join("\n", ordByYear));
+                        break;
+                }
             }
             return @"=================
 Movies Listed!
