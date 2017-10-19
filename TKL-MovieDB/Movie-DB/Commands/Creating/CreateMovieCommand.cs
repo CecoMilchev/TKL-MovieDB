@@ -13,12 +13,11 @@ using System.Threading.Tasks;
 
 namespace Movie_DB.Commands.Creating
 {
-   public class CreateMovieCommand : AbstractCommand, ICommand
+    public class CreateMovieCommand : AbstractCommand, ICommand
     {
         private List<string> movieData = new List<string>();
         private List<string> movieGenres = new List<string>();
         private List<string> movieWriters = new List<string>();
-        private List<string> movieDirectors = new List<string>();
         private List<string> movieCast = new List<string>();
 
         public CreateMovieCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
@@ -28,55 +27,74 @@ namespace Movie_DB.Commands.Creating
 
         public void CollectData()
         {
-            writer.WriteLine("Enter Movie Title: ");  // movieData 0
-            movieData.Add(reader.ReadLine()); 
+            writer.WriteLine("Enter Movie Title: ");
+            movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Genres: "); 
+            writer.WriteLine("Enter Genres: ");
             movieGenres.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Year: "); // movieData 1
-            movieData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Year: ");
+            movieData.Add(reader.ReadLine()); //movieData[1]
 
-            writer.WriteLine("Enter Release Date: "); // movieData 2
-            movieData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Release Date: ");
+            movieData.Add(reader.ReadLine()); //movieData[2]
 
-            writer.WriteLine("Enter Rating: ");  // movieData 3
-            movieData.Add(reader.ReadLine());
-
-            writer.WriteLine("Enter Synopsis: "); // movieData 4
-            movieData.Add(reader.ReadLine());
+            writer.WriteLine("Enter Synopsis: ");
+            movieData.Add(reader.ReadLine()); //movieData[3]
 
             writer.WriteLine("Enter Writers: ");
             movieWriters.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Directors: ");
-            movieDirectors.AddRange(reader.ReadLine().Split(' '));
+            writer.WriteLine("Enter Director: ");
+            movieData.Add(reader.ReadLine()); //movieData[4]
 
             writer.WriteLine("Enter Cast: ");
             movieCast.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Budget: "); // movieData 5
+            writer.WriteLine("Enter Budget: "); //movieData[5]
             movieData.Add(reader.ReadLine());
         }
 
         public string Execute()
         {
             CollectData();
+            var movie = this.factory.CreateMovie();
+            movie.Title = movieData[0]; //title
 
             foreach (var genre in movieGenres)
             {
                 var genreFromContext = context.Genres.Where(r => r.Name == genre).First();
-                                    
-                if (genre == genreFromContext.ToString())
-                {
 
+                if (genre == genreFromContext.Name)
+                {
+                    movie.Genres.Add(genreFromContext);
                 }
+                else
+                {
+                    context.Genres.Add(new Genre() { Name = genre });
+                }
+
             }
 
-            var movie = this.factory.CreateMovie(movieData[0], movieGenres, movieData[1],
-                movieData[2], int.Parse(movieData[3]), movieData[4], movieWriters, movieDirectors, movieCast, decimal.Parse(movieData[5]));
+            movie.Year = movieData[1]; //year
+            movie.ReleaseDate = movieData[2]; // release date
+            movie.Synopsis = movieData[3];
 
-            //context.Movies.Add(movie);
+            foreach (var writer in movieWriters) // writers
+            {
+                var writerFromContext = context.Persons.Where(r => r.FirstName == writer).First();
+
+                if (writer == writerFromContext.Name)
+                {
+                    movie.Genres.Add(genreFromContext);
+                }
+                else
+                {
+                    context.Genres.Add(new Genre() { Name = genre });
+                }
+
+            }
+            context.Movies.Add(movie);
 
             context.SaveChanges();
 
