@@ -1,6 +1,7 @@
 namespace Movie_DB.Migrations
 {
     using Models.Framework;
+    using Movie_DB.Commands.Admin;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -33,32 +34,37 @@ namespace Movie_DB.Migrations
             //    );
             //
 
-            using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            //using (StreamReader reader = new StreamReader(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml"))
+            //{
+            //    XmlDocument doc = new XmlDocument();
+            //    doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
+
+            //    var people = doc.DocumentElement;
+            //    if (true)
+            //    {
+            //        foreach (XmlElement person in people)
+            //        {
+            //            var personFirstName = person["firstName"];
+            //            var personLastName = person["lastName"];
+            //            var personJob = person["job"];
+
+            //            var myPerson = new Person()
+            //            {
+            //                FirstName = personFirstName.InnerText,
+            //                LastName = personLastName.InnerText,
+            //                Job = personJob.InnerText
+            //            };
+            //            context.Persons.Add(myPerson);
+            //        }
+            //    }
+            //    context.SaveChanges();
+            //}
+            var genres = JSONController.ReadGenresFromJSON();
+            foreach(var g in genres)
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(@"C:\Users\Admin\Desktop\DB project\TKL-MovieDB\TKL-MovieDB\Movie-DB\XML\movie.xml");
-                
-                var people = doc.DocumentElement;
-                if (true)
-                {
-                    foreach (XmlElement person in people)
-                    {
-                        var personFirstName = person["firstName"];
-                        var personLastName = person["lastName"];
-                        var personJob = person["job"];
-
-                        var myPerson = new Person()
-                        {
-                            FirstName = personFirstName.InnerText,
-                            LastName = personLastName.InnerText,
-                            Job = personJob.InnerText
-                        };
-                        context.Persons.Add(myPerson);
-                    }
-                }
-                context.SaveChanges();
+                context.Genres.Add(g);
             }
-
+            context.SaveChanges();
         }
     }
 }

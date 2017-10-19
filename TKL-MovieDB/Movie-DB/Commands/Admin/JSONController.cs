@@ -36,12 +36,18 @@ namespace Movie_DB.Commands.Admin
 
         public static Genre[] ReadGenresFromJSON()
         {
-            var url = "../../Data/saved.json";
+            var url = "../../Data/GenresData.json";
             var json = File.ReadAllText(url);
             var jsonObject = JObject.Parse(json);
-            int count = int.Parse(jsonObject.Children().FirstOrDefault(C => C.Path == "count").ToString());
+            int count = jsonObject.Value<int>("count");
             Genre[] genres = new Genre[count];
 
+            genres = jsonObject["genres"].Select(g => new Genre() { Name = g.Value<string>("name") }).ToArray();
+
+            //foreach(var g in genres)
+            //{
+            //    Console.WriteLine(g.Name);
+            //}
             return genres;
         }
     }

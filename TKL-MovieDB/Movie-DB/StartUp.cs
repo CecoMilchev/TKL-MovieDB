@@ -42,7 +42,7 @@ namespace Movie_DB
             //};
 
             //JSONController.SaveToFile(genre);
-
+            //JSONController.ReadGenresFromJSON();
         }
     }
 }
