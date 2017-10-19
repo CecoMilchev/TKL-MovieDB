@@ -1,6 +1,6 @@
 namespace Movie_DB.Migrations
 {
-    using Models.Framework;
+    using Models;
     using Movie_DB.Commands.Admin;
     using System;
     using System.Collections.Generic;
