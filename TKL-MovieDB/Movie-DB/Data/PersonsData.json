@@ -128,11 +128,53 @@
             "series": "Dexter"
         },
         {
-            "firstName": " David",
+            "firstName": "David",
             "lastName": "Zayas",
             "job": "actor",
             "movie": "",
             "series": "Dexter"
+        },
+        {
+            "firstName": "Chuck",
+            "lastName": "Lorre",
+            "job": "creator",
+            "movie": "",
+            "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Lee",
+            "lastName": "Aronsohn",
+            "job": "creator",
+            "movie": "",
+            "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Charlie",
+            "lastName": "Sheen",
+            "job": "actor",
+            "movie": "",
+            "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Jon",
+            "lastName": "Cryer",
+            "job": "actor",
+            "movie": "",
+            "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Angus",
+            "lastName": "Jones",
+            "job": "actor",
+            "movie": "",
+            "series": "Two and a Half Men"
+        },
+        {
+            "firstName": "Ashton",
+            "lastName": "Kutcher",
+            "job": "actor",
+            "movie": "",
+            "series": "Two and a Half Men"
         }
     ]
 }
