@@ -1,5 +1,4 @@
-﻿using Models.Framework;
-using Movie_DB.Commands.Abstarcts;
+﻿using Movie_DB.Commands.Abstarcts;
 using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Core.Providers;
@@ -12,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Movie_DB.Commands.Listing
 {
-    public class ListPersonsCommand : AbstractCommand, ICommand
+    public class ListMoviesCommand : AbstractCommand, ICommand
     {
         private readonly List<string> listData = new List<string>();
 
-        public ListPersonsCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
+        public ListMoviesCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
         {
 
@@ -25,9 +24,9 @@ namespace Movie_DB.Commands.Listing
         public void CollectData()
         {
             writer.WriteLine("=================");
-            writer.WriteLine("List Persons by:....");
+            writer.WriteLine("List Movies by:....");
             listData.Add(reader.ReadLine());
-            Console.WriteLine("List All(type 'List All') or Enter a specific {0}:....", listData[0]);
+            Console.WriteLine("List All(type 'List All') with that {0} or Enter a specific {0}:....", listData[0]);
             listData.Add(reader.ReadLine());
         }
 
@@ -46,21 +45,21 @@ namespace Movie_DB.Commands.Listing
 
             switch (listedObjectsBy)
             {
-                case "First Name":
-                    var ordByFirstName = context.Persons.Where(x => x.FirstName == listByParameter).ToList();
-                    writer.Write(string.Join("\n", ordByFirstName));
+                case "Title":
+                    var ordByFirstTitle = context.Movies.Where(x => x.Title == listByParameter).ToList();
+                    writer.Write(string.Join("\n", ordByFirstTitle));
                     break;
-                case "Last Name":
-                    var ordByLastName = context.Persons.Where(x => x.LastName == listByParameter).ToList();
-                    writer.Write(string.Join("\n", ordByLastName));
+                case "Genre":
+                    var ordByLastGenre = context.Movies.Where(x => x.Genres == listByParameter).ToList(); // waiting for ceco
+                    writer.Write(string.Join("\n", ordByLastGenre));
                     break;
-                case "Job":
-                    var ordByJob = context.Persons.Where(x => x.Job == listByParameter).ToList(); ;
-                    writer.Write(string.Join("\n", ordByJob));
+                case "Year":
+                    var ordByYear = context.Movies.Where(x => x.Year == listByParameter).ToList(); ;
+                    writer.Write(string.Join("\n", ordByYear));
                     break;
             }
             return @"=================
-Persons Listed!
+Movies Listed!
 =================";
         }
     }
