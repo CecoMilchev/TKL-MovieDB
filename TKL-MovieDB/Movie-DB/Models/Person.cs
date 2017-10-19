@@ -25,9 +25,9 @@ namespace Models.Framework
         [JsonProperty("job")]
         public string Job { get; set; }
 
-
+        [Required]
+        [JsonProperty("movies")]
         public ICollection<Movie> Movies { get; set; }
-
 
         public override string ToString()
         {

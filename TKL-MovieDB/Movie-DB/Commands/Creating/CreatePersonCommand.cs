@@ -31,7 +31,7 @@ namespace Movie_DB.Commands.Creating
             personData.Add(reader.ReadLine());
             writer.WriteLine("Enter Job:");
             personData.Add(reader.ReadLine());
-            writer.WriteLine("Enter A Movie He Is In :");
+            writer.WriteLine("Enter A Movie He/She is In:");
             personData.Add(reader.ReadLine());
 
         }
