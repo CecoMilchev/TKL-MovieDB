@@ -40,8 +40,8 @@ namespace Models.Framework
         [JsonProperty("releaseDate")]
         public string ReleaseDate { get; set; }
 
-        //[JsonProperty("rating")]
-        //public int Rating { get; set; }
+        [JsonProperty("rating")]
+        public int Rating { get; set; }
 
         [Required]
         [StringLength(300, MinimumLength = 3,

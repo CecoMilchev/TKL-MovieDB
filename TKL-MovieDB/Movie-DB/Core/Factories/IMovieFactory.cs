@@ -11,8 +11,8 @@ namespace Movie_DB.Commands.Core.Factories
     {
         Person CreatePerson(string firstName, string lasttName, string job);
 
-        //Movie CreateMovie(string name, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
-        //    ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget);
+        Movie CreateMovie(string name, ICollection<Genre> categories, string year, string releaseDate, int rating, string synopsis,
+            ICollection<Person> writers, ICollection<Person> directors, ICollection<Person> cast, decimal budget);
 
         Series CreateSeries(string name, int genreId, /*int rating,*/  int numberOfSeasons, int episodesPerSeason, string ongoing);
 

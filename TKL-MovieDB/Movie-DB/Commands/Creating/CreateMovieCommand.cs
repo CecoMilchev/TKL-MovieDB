@@ -16,7 +16,7 @@ namespace Movie_DB.Commands.Creating
    public class CreateMovieCommand : AbstractCommand, ICommand
     {
         private List<string> movieData = new List<string>();
-        private List<string> movieCategories = new List<string>();
+        private List<string> movieGenres = new List<string>();
         private List<string> movieWriters = new List<string>();
         private List<string> movieDirectors = new List<string>();
         private List<string> movieCast = new List<string>();
@@ -28,22 +28,22 @@ namespace Movie_DB.Commands.Creating
 
         public void CollectData()
         {
-            writer.WriteLine("Enter Movie Title: ");
+            writer.WriteLine("Enter Movie Title: ");  // movieData 0
+            movieData.Add(reader.ReadLine()); 
+
+            writer.WriteLine("Enter Genres: "); 
+            movieGenres.AddRange(reader.ReadLine().Split(' '));
+
+            writer.WriteLine("Enter Year: "); // movieData 1
             movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Genres: ");
-            movieCategories.AddRange(reader.ReadLine().Split(' '));
-
-            writer.WriteLine("Enter Year: ");
+            writer.WriteLine("Enter Release Date: "); // movieData 2
             movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Release Date: ");
+            writer.WriteLine("Enter Rating: ");  // movieData 3
             movieData.Add(reader.ReadLine());
 
-            writer.WriteLine("Enter Rating: ");
-            movieData.Add(reader.ReadLine());
-
-            writer.WriteLine("Enter Synopsis: ");
+            writer.WriteLine("Enter Synopsis: "); // movieData 4
             movieData.Add(reader.ReadLine());
 
             writer.WriteLine("Enter Writers: ");
@@ -55,15 +55,26 @@ namespace Movie_DB.Commands.Creating
             writer.WriteLine("Enter Cast: ");
             movieCast.AddRange(reader.ReadLine().Split(' '));
 
-            writer.WriteLine("Enter Budget: ");
+            writer.WriteLine("Enter Budget: "); // movieData 5
             movieData.Add(reader.ReadLine());
         }
 
         public string Execute()
         {
             CollectData();
-            //var movie = this.factory.CreateMovie(movieData[0],  movieData[1], movieData[3],
-            //    movieData[4], movieData[5], movieData[6], movieData[7], movieData[8], movieData[9]);
+
+            foreach (var genre in movieGenres)
+            {
+                var genreFromContext = context.Genres.Where(r => r.Name == genre).First();
+                                    
+                if (genre == genreFromContext.ToString())
+                {
+
+                }
+            }
+
+            var movie = this.factory.CreateMovie(movieData[0], movieGenres, movieData[1],
+                movieData[2], int.Parse(movieData[3]), movieData[4], movieWriters, movieDirectors, movieCast, decimal.Parse(movieData[5]));
 
             //context.Movies.Add(movie);
 
