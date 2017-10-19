@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using Models.Framework;
 using Movie_DB.Commands.Abstarcts;
 using Movie_DB.Commands.Contracts;
 using Movie_DB.Commands.Core.Factories;
@@ -30,15 +31,21 @@ namespace Movie_DB.Commands.Creating
             personData.Add(reader.ReadLine());
             writer.WriteLine("Enter Job:");
             personData.Add(reader.ReadLine());
+            writer.WriteLine("Enter A Movie He Is In :");
+            personData.Add(reader.ReadLine());
+
         }
 
         public string Execute()
         {
             CollectData();
             var person = this.factory.CreatePerson(personData[0], personData[1], personData[2]);
+            var movie = new Movie();
+            movie.Title = personData[3];
+            person.Movies.Add(movie);
             writer.WriteLine("Creating a Person...");
 
-            var shit = context.Persons.ToList();
+
             context.Persons.Add(person);
             context.SaveChanges();
 

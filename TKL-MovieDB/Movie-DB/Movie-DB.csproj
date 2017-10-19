@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201710171059298_gere series id null.Designer.cs">
       <DependentUpon>201710171059298_gere series id null.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710190815176_movies to people.cs" />
+    <Compile Include="Migrations\201710190815176_movies to people.Designer.cs">
+      <DependentUpon>201710190815176_movies to people.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710171059298_gere series id null.resx">
       <DependentUpon>201710171059298_gere series id null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710190815176_movies to people.resx">
+      <DependentUpon>201710190815176_movies to people.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
