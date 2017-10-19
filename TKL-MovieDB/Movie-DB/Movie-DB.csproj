@@ -113,6 +113,10 @@
     <Compile Include="Migrations\201710191546503_series collection.Designer.cs">
       <DependentUpon>201710191546503_series collection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710191630479_synopsis model.cs" />
+    <Compile Include="Migrations\201710191630479_synopsis model.Designer.cs">
+      <DependentUpon>201710191630479_synopsis model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -127,6 +131,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Data\GenresData.json" />
+    <None Include="Data\PersonsData.json" />
+    <None Include="Data\sinopsisData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710191546503_series collection.resx">
       <DependentUpon>201710191546503_series collection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191630479_synopsis model.resx">
+      <DependentUpon>201710191630479_synopsis model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

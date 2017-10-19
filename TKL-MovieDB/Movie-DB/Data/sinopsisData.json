@@ -1,0 +1,17 @@
+{
+    "count": "3",
+    "synopses": [
+        {
+            "MovieTitle": "The Shawshank Redemption",
+            "text": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+        },
+        {
+            "MovieTitle": "The Dark Knight",
+            "text": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+        },
+        {
+            "MovieTitle": "12 Angry Men",
+            "text": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence."
+        }
+    ]
+}
