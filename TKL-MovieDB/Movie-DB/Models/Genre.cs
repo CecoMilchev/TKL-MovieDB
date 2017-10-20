@@ -22,5 +22,12 @@ namespace Models.Framework
 
         public virtual ICollection<Movie> Movies { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format(@"
+|| Name: {0}
+|| Movies: {1}", this.Name, string.Join("\n||",this.Movies));
+
+        }
     }
 }

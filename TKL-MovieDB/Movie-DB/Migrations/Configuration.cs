@@ -34,10 +34,10 @@ namespace Movie_DB.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            using (StreamReader reader = new StreamReader("../../XML/movie.xml"))
+            using (StreamReader reader = new StreamReader(@"D:\______SOFTDEVELOP\__TELERIK\ALPHA\SQL_DB\DB-TeamProject\TKL-MovieDB\Movie-DB\XML\movie.xml")) 
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("../../XML/movie.xml");
+                doc.Load(@"D:\______SOFTDEVELOP\__TELERIK\ALPHA\SQL_DB\DB-TeamProject\TKL-MovieDB\Movie-DB\XML\movie.xml");
 
                 var people = doc.DocumentElement;
                 if (!context.Persons.Any())

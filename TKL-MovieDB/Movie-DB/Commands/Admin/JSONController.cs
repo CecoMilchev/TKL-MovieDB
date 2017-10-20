@@ -18,7 +18,7 @@ namespace Movie_DB.Commands.Admin
 
         public static void SaveToFile(Object obj)
         {
-            string url = "../../Data/saved.json";
+            string url = @"D:\______SOFTDEVELOP\__TELERIK\ALPHA\SQL_DB\DB-TeamProject\TKL-MovieDB\Movie-DB\Data\saved.json";
             string json = JsonConvert.SerializeObject(obj);
             File.WriteAllText(url, json);
         }
@@ -32,7 +32,7 @@ namespace Movie_DB.Commands.Admin
 
         public static Genre[] ReadGenresFromJSON()
         {
-            var url = "../../Data/GenresData.json";
+            var url = @"D:\______SOFTDEVELOP\__TELERIK\ALPHA\SQL_DB\DB-TeamProject\TKL-MovieDB\Movie-DB\Data\GenresData.json";
             var json = File.ReadAllText(url);
             var jsonObject = JObject.Parse(json);
             int count = jsonObject.Value<int>("count");
@@ -49,7 +49,7 @@ namespace Movie_DB.Commands.Admin
 
         public static Person[] ReadPersonsFromJSON()
         {
-            var url = "../../Data/PersonsData.json";
+            var url = @"D:\______SOFTDEVELOP\__TELERIK\ALPHA\SQL_DB\DB-TeamProject\TKL-MovieDB\Movie-DB\Data\PersonsData.json";
             var json = File.ReadAllText(url);
             var jsonObject = JObject.Parse(json);
             int count = jsonObject.Value<int>("count");

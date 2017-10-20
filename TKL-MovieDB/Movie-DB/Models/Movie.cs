@@ -62,5 +62,13 @@ namespace Models.Framework
 
         [JsonProperty("budget")]
         public decimal Budget { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format(@"
+|| Title: {0}
+|| Year: {1}", this.Title, this.Year);
+
+        }
     }
 }

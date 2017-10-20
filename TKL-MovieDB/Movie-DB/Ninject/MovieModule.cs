@@ -4,6 +4,7 @@ using Movie_DB.Commands.Core.Factories;
 using Movie_DB.Commands.Creating;
 using Movie_DB.Commands.Listing;
 using Movie_DB.Commands.Remove;
+using Movie_DB.Core.Commands;
 using Movie_DB.Core.Providers;
 using Movie_DB.Data;
 using Ninject.Modules;
@@ -38,6 +39,8 @@ namespace Movie_DB.Ninject
             this.Bind<ICommand>().To<RemovePersonCommand>().Named("Remove Person");
             this.Bind<ICommand>().To<RemoveMovieCommand>().Named("Remove Movie");
             this.Bind<ICommand>().To<RemoveSeriesCommand>().Named("Remove Series");
+
+            this.Bind<ICommand>().To<PDFExportCommand>().Named("Create PDF");
 
 
             this.Bind<ICommand>().To<HelpCommand>().Named("/help");

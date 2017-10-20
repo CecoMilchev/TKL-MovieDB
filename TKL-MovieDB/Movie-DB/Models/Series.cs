@@ -35,5 +35,12 @@ namespace Models.Framework
 
         [JsonProperty("npisodesPerSeason")]
         public int EpisodesPerSeason { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format(@"
+|| Title: {0}", this.Name);
+
+        }
     }
 }
