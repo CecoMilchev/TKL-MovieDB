@@ -52,14 +52,23 @@ namespace Movie_DB.Commands.Core.Factories
             return movie;
         }
 
-        
-        public Series CreateSeries(string name, Genre genre)
+
+
+        public Series CreateSeries(string name, Genre genre, ICollection<Person> creators,
+             ICollection<Person> writers, ICollection<Person> stars, string ongoing,
+             int numberOfSeasons, int episodesPerSeason)
         {
-            Series series = new Series
+
+            var series = new Series
             {
                 Name = name,
-                Genre = genre
-                
+                Genre = genre,
+                Creators = creators,
+                Writers = writers,
+                Stars = stars,
+                Ongoing = ongoing,
+                NumberOfSeasons = numberOfSeasons,
+                EpisodesPerSeason = episodesPerSeason
             };
 
             return series;
