@@ -18,6 +18,9 @@ namespace Movie_DB.Commands.Creating
         private int numberOfSeasons;
         private int episodesPerSeason;
         private ICollection<Person> creators;
+        private ICollection<Person> writers;
+        private ICollection<Person> stars;
+
         public CreateSeriesCommand(IMovieDbContext context, IMovieFactory factory, IReader reader, IWriter writer)
             : base(context, factory, reader, writer)
         {
@@ -55,7 +58,23 @@ namespace Movie_DB.Commands.Creating
                 genre = context.Genres.FirstOrDefault(g => g.Name == genreName);
             }
 
-            var series = this.factory.CreateSeries(name, genre, creators);
+            foreach (var p in context.Persons)
+            {
+                if (p.Movie == name && p.Job == "creator")
+                {
+                    creators.Add(p);
+                }
+                if (p.Movie == name && p.Job == "writer")
+                {
+                    writers.Add(p);
+                }
+                if (p.Movie == name && p.Job == "actor")
+                {
+                    stars.Add(p);
+                }
+            }
+
+            var series = this.factory.CreateSeries(name, genre, creators, writers,stars,ongoing,numberOfSeasons,episodesPerSeason);
 
             context.SeriesCollection.Add(series);
 
