@@ -62,15 +62,18 @@ namespace Movie_DB.Commands.Creating
             {
                 if (p.Movie == name && p.Job == "creator")
                 {
-                    sCreators.Add(p);
+                    var person = context.Persons.FirstOrDefault(pr => pr.FirstName == p.FirstName);
+                    sCreators.Add(person);
                 }
                 if (p.Movie == name && p.Job == "writer")
                 {
-                    sWriters.Add(p);
+                    var person = context.Persons.FirstOrDefault(pr => pr.FirstName == p.FirstName);
+                    sWriters.Add(person);
                 }
                 if (p.Movie == name && p.Job == "actor")
                 {
-                    sStars.Add(p);
+                    var person = context.Persons.FirstOrDefault(pr => pr.FirstName == p.FirstName);
+                    sStars.Add(person);
                 }
             }
 
