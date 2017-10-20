@@ -25,8 +25,7 @@ namespace Models.Framework
         public override string ToString()
         {
             return string.Format(@"
-|| Name: {0}
-|| Movies: {1}", this.Name, string.Join("\n||",this.Movies));
+|| Name: {0}", this.Name);
 
         }
     }
