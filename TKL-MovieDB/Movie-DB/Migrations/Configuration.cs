@@ -64,15 +64,22 @@ namespace Movie_DB.Migrations
                         }
                     }
                 }
+                var genres = JSONController.ReadGenresFromJSON();
+                foreach (var g in genres)
+                {
+                    context.Genres.Add(g);
+                }
+
+                var persons = JSONController.ReadPersonsFromJSON();
+                foreach (var p in persons)
+                {
+                    context.Persons.Add(p);
+                }
+
                 context.SaveChanges();
             }
 
-            var genres = JSONController.ReadGenresFromJSON();
-            foreach (var g in genres)
-            {
-                context.Genres.Add(g);
-            }
-            context.SaveChanges();
+           
         }
     }
 }

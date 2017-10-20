@@ -46,5 +46,28 @@ namespace Movie_DB.Commands.Admin
             //}
             return genres;
         }
+
+        public static Person[] ReadPersonsFromJSON()
+        {
+            var url = "../../Data/PersonsData.json";
+            var json = File.ReadAllText(url);
+            var jsonObject = JObject.Parse(json);
+            int count = jsonObject.Value<int>("count");
+            Person[] persons = new Person[count];
+
+            persons = jsonObject["persons"]
+                .Select(p => new Person()
+                { FirstName = p.Value<string>("firstName"),
+                LastName = p.Value<string>("lastName"),
+                    Job = p.Value<string>("job"),
+                    Movie=p.Value<string>("movie")
+                }).ToArray();
+
+            //foreach(var g in genres)
+            //{
+            //    Console.WriteLine(g.Name);
+            //}
+            return persons;
+        }
     }
 }
