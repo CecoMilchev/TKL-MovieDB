@@ -1,8 +1,4 @@
 ﻿using Models.Framework;
-using Movie_DB.Commands.Abstarcts;
-using Movie_DB.Commands.Core.Factories;
-using Movie_DB.Core.Providers;
-using Movie_DB.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -36,7 +32,7 @@ namespace Movie_DB.Commands.Admin
 
         public static Genre[] ReadGenresFromJSON()
         {
-            var url = @"C:\Users\Admin\Desktop\asdasd\TKL-MovieDB\TKL-MovieDB\Movie-DB\Data\GenresData.json";
+            var url = "../../Data/GenresData.json";
             var json = File.ReadAllText(url);
             var jsonObject = JObject.Parse(json);
             int count = jsonObject.Value<int>("count");
